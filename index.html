@@ -51,7 +51,17 @@ section{padding:90px 20px}.container{max-width:1100px;margin:auto}.titulo{text-a
 <footer><p>🍌 <span>Festival del Plátano — Santa Elena</span></p><p>Proyecto escolar interactivo • Tecnología e Informática</p><p>Las fotografías y el video integrados corresponden al material aportado para este proyecto.</p></footer>
 <button id="topBtn" onclick="subirArriba()">↑</button>
 <div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="cerrarModal()">×</button><div id="modalContent"></div></div></div>
-<script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+const SUPABASE_URL = "https://hnxhqoytrjyhznzhyrep.supabase.co";
+const SUPABASE_KEY = "sb_publishable_P9tj4R_tAMcJHrxrwlHflQ_D3jbWveq";
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+console.log("Supabase conectado");    
+</script>
+  <script>
 function toggleMenu(){document.getElementById("menu").classList.toggle("active")}
 document.querySelectorAll(".menu a").forEach(function(enlace){enlace.addEventListener("click",function(){document.getElementById("menu").classList.remove("active")})})
 function filtrarComida(tipo,boton){document.querySelectorAll(".filter").forEach(function(b){b.classList.remove("active")});boton.classList.add("active");document.querySelectorAll(".comida").forEach(function(card){card.style.display=(tipo==="todos"||card.dataset.type===tipo)?"block":"none"})}

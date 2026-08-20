@@ -32,7 +32,7 @@ section{padding:90px 20px}.container{max-width:1100px;margin:auto}.titulo{text-a
 <section id="festival"><div class="container"><div class="titulo"><h2>🌿 Sobre el festival en Santa Elena</h2><p>Un espacio para compartir, aprender y mostrar el sabor del campo.</p></div><div class="festival-content"><div class="festival-text"><h3>Más que una celebración</h3><p>El Festival del Plátano reúne gastronomía, comunidad, agricultura y expresiones culturales alrededor de un producto que está presente en la vida cotidiana.</p><p>Las fotografías que aparecen en esta página son parte del material aportado para el proyecto y permiten mostrar el ambiente real de la celebración.</p><p>Las hojas de plátano también hacen parte de la identidad visual: aparecen en mesas, paredes, puestos, empaques y decoraciones.</p></div><div class="festival-box"><div class="big">🍌</div><h3>¡Celebremos nuestras raíces!</h3><p>Cultura + Agricultura + Tradición + Gastronomía</p></div></div></div></section>
 <section id="gastronomia"><div class="container"><div class="titulo"><h2>🍽️ Gastronomía del festival</h2><p>Explora las preparaciones que aparecen en nuestras fotografías.</p></div><div class="filters"><button class="filter active" onclick="filtrarComida('todos',this)">Todos</button><button class="filter" onclick="filtrarComida('salado',this)">Salados</button><button class="filter" onclick="filtrarComida('dulce',this)">Dulces</button><button class="filter" onclick="filtrarComida('especial',this)">Especiales</button></div><div class="food-grid">
 <article class="food comida" data-type="salado" onclick="abrirPlato('Muestra gastronómica','Una muestra con diferentes preparaciones hechas a base de plátano y presentadas sobre hojas.','imagenes/gastronomia-1.jpg')"><img src="imagenes/gastronomia-1.jpg" alt="Muestra gastronómica"><div class="food-body"><span class="tag">SALADO</span><h3>Muestra gastronómica</h3><p>Variedad de preparaciones del festival.</p></div></article>
-<article class="food comida" data-type="especial" onclick="abrirPlato('Plataña','Preparación presentada en el festival como una propuesta especial de la muestra gastronómica.','imagenes/plataña-1.jpg')"><img src="imagenes/platana-1.jpg" alt="Plataña"><div class="food-body"><span class="tag">ESPECIAL</span><h3>“Platana”</h3><p>Una preparación destacada de la muestra.</p></div></article>
+<article class="food comida" data-type="especial" onclick="abrirPlato('Plataña','Preparación presentada en el festival como una propuesta especial de la muestra gastronómica.','imagenes/plataña-1.jpg')"><img src="imagenes/plataña-1.jpg" alt="Plataña"><div class="food-body"><span class="tag">ESPECIAL</span><h3>“Plataña”</h3><p>Una preparación destacada de la muestra.</p></div></article>
 <article class="food comida" data-type="especial" onclick="abrirPlato('Pizza de plátano hawaiana','Una propuesta creativa que utiliza el plátano como ingrediente principal.','imagenes/pizza-platano.jpg')"><img src="imagenes/pizza-platano.jpg" alt="Pizza de plátano hawaiana"><div class="food-body"><span class="tag">ESPECIAL</span><h3>Pizza de plátano hawaiana</h3><p>Innovación gastronómica del festival.</p></div></article>
 <article class="food comida" data-type="dulce" onclick="abrirPlato('Bocadillo de plátano','Una presentación artesanal donde el plátano se convierte en un dulce del festival.','imagenes/bocadillo-platano.jpg')"><img src="imagenes/bocadillo-platano.jpg" alt="Bocadillo de plátano"><div class="food-body"><span class="tag">DULCE</span><h3>Bocadillo de plátano</h3><p>Dulce presentado de forma artesanal.</p></div></article>
 <article class="food comida" data-type="salado" onclick="abrirPlato('Muestra del III Festival','Productos y preparaciones identificados con la imagen del festival.','imagenes/festival-productos.jpg')"><img src="imagenes/festival-productos.jpg" alt="Productos del III Festival"><div class="food-body"><span class="tag">SALADO</span><h3>Productos del festival</h3><p>Empaques y preparaciones con identidad propia.</p></div></article>
@@ -46,7 +46,1615 @@ section{padding:90px 20px}.container{max-width:1100px;margin:auto}.titulo{text-a
 <section id="programacion"><div class="container"><div class="titulo"><h2>📅 Programación</h2><p>Ejemplo de programación para disfrutar un día de festival.</p></div><div class="schedule"><div class="event"><div class="time">8:00 AM</div><div><h3>🎺 Apertura</h3><p>Inicio del festival y recorrido por las decoraciones.</p></div></div><div class="event"><div class="time">10:00 AM</div><div><h3>🍽️ Muestra gastronómica</h3><p>Presentación de platos y preparaciones hechas a base de plátano.</p></div></div><div class="event"><div class="time">1:00 PM</div><div><h3>🌱 Exposición del cultivo</h3><p>Presentación de racimos, matas y productos del campo.</p></div></div><div class="event"><div class="time">3:00 PM</div><div><h3>💃 Presentación folclórica</h3><p>Danzas, música y actividades culturales.</p></div></div><div class="event"><div class="time">5:00 PM</div><div><h3>🎉 Gran cierre</h3><p>Reconocimiento a participantes y despedida del festival.</p></div></div></div></div></section>
 <section><div class="container"><div class="titulo"><h2>💡 ¿Sabías que...?</h2></div><div class="fact-box"><h3>Dato curioso</h3><p id="dato">Las hojas de plátano pueden utilizarse para decorar y presentar alimentos, algo que también se observa en las fotografías de este proyecto.</p><br><button class="btn" onclick="nuevoDato()">Otro dato</button></div></div></section>
 <section id="quiz"><div class="container"><div class="titulo"><h2>🧠 Quiz del Plátano</h2><p>¡Pon a prueba tus conocimientos sobre el festival!</p></div><div class="quiz-container"><div class="question"><h3>1. ¿Cuál es el protagonista de este festival?</h3><button class="answer" onclick="responder(this,true)">🍌 El plátano</button><button class="answer" onclick="responder(this,false)">🍎 La manzana</button><button class="answer" onclick="responder(this,false)">🥕 La zanahoria</button></div><div class="question"><h3>2. ¿Qué parte de la planta se utiliza mucho en la decoración?</h3><button class="answer" onclick="responder(this,true)">🌿 Las hojas</button><button class="answer" onclick="responder(this,false)">❄️ La nieve</button><button class="answer" onclick="responder(this,false)">🌾 El trigo</button></div><div class="question"><h3>3. ¿Qué actividad pertenece al ambiente del festival?</h3><button class="answer" onclick="responder(this,true)">💃 Folclor y gastronomía</button><button class="answer" onclick="responder(this,false)">🏎️ Carrera de Fórmula 1</button><button class="answer" onclick="responder(this,false)">🏒 Hockey sobre hielo</button></div><div id="resultado"></div></div></div></section>
-<section><div class="container"><div class="titulo"><h2>📸 Galería del festival</h2><p>Haz clic sobre cualquier fotografía para verla más grande.</p></div><div class="gallery"><div class="gallery-item" onclick="abrirImagen('imagenes/portada-festival.jpg','Letrero y muestra gastronómica')"><img src="imagenes/portada-festival.jpg" alt="Letrero y muestra gastronómica"></div><div class="gallery-item" onclick="abrirImagen('imagenes/gastronomia-1.jpg','Muestra gastronómica')"><img src="imagenes/gastronomia-1.jpg" alt="Muestra gastronómica"></div><div class="gallery-item" onclick="abrirImagen('imagenes/platana-1.jpg','Platana')"><img src="imagenes/platana-1.jpg" alt="Platana"></div><div class="gallery-item" onclick="abrirImagen('imagenes/gastronomia-2.jpg','Preparaciones del festival')"><img src="imagenes/gastronomia-2.jpg" alt="Preparaciones del festival"></div><div class="gallery-item" onclick="abrirImagen('imagenes/pizza-platano.jpg','Pizza de plátano hawaiana')"><img src="imagenes/pizza-platano.jpg" alt="Pizza de plátano hawaiana"></div><div class="gallery-item" onclick="abrirImagen('imagenes/bocadillo-platano.jpg','Bocadillos de plátano')"><img src="imagenes/bocadillo-platano.jpg" alt="Bocadillos de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/festival-productos.jpg','Productos del III Festival')"><img src="imagenes/festival-productos.jpg" alt="Productos del III Festival"></div><div class="gallery-item" onclick="abrirImagen('imagenes/dulce-hoja-platano.jpg','Dulce sobre hoja de plátano')"><img src="imagenes/dulce-hoja-platano.jpg" alt="Dulce sobre hoja de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/plato-hoja-platano.jpg','Plato servido sobre hoja')"><img src="imagenes/plato-hoja-platano.jpg" alt="Plato servido sobre hoja"></div><div class="gallery-item" onclick="abrirImagen('imagenes/participantes-festival.jpg','Participantes del festival')"><img src="imagenes/participantes-festival.jpg" alt="Participantes del festival"></div><div class="gallery-item" onclick="abrirImagen('imagenes/canapes-platano.jpg','Canapés de plátano')"><img src="imagenes/canapes-platano.jpg" alt="Canapés de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/puesto-hojas-platano.jpg','Puesto decorado con hojas de plátano')"><img src="imagenes/puesto-hojas-platano.jpg" alt="Puesto decorado con hojas de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/banner-festival-2026.jpg','Banner del III Festival del Plátano')"><img src="imagenes/banner-festival-2026.jpg" alt="Banner del III Festival del Plátano"></div></div></div></section>
+<!-- =====================================================
+     🍌 EL DESAFÍO DEL PLÁTANO
+     ===================================================== -->
+
+<section id="desafioPlatano">
+
+<style>
+#desafioPlatano{
+  max-width:1100px;
+  margin:30px auto;
+  padding:15px;
+  font-family:Arial,sans-serif;
+  color:#17321a;
+}
+
+#desafioPlatano *{
+  box-sizing:border-box;
+}
+
+.dp-contenedor{
+  background:linear-gradient(135deg,#fffdf0,#eef8e8);
+  border-radius:25px;
+  padding:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.dp-titulo{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.dp-titulo h2{
+  font-size:clamp(26px,5vw,42px);
+  margin:0;
+  color:#28752e;
+}
+
+.dp-titulo p{
+  color:#657065;
+}
+
+.dp-pantalla{
+  text-align:center;
+  padding:25px 10px;
+}
+
+.dp-input{
+  width:min(100%,320px);
+  padding:13px;
+  border:2px solid #d6e3d1;
+  border-radius:12px;
+  font-size:17px;
+  text-align:center;
+  margin:10px;
+}
+
+.dp-btn{
+  border:0;
+  padding:13px 25px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:18px;
+  margin:10px;
+}
+
+.dp-btn-principal{
+  background:#f5c842;
+  color:#292000;
+}
+
+.dp-btn-principal:hover{
+  transform:scale(1.03);
+}
+
+.dp-oculto{
+  display:none!important;
+}
+
+.dp-hud{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  margin-bottom:10px;
+}
+
+.dp-hud div{
+  background:#f1f7ed;
+  padding:9px 4px;
+  border-radius:10px;
+  text-align:center;
+  font-weight:bold;
+  font-size:13px;
+}
+
+#dpCanvas{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:18px;
+  background:#b8df9d;
+  touch-action:none;
+}
+
+.dp-controles{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+
+.dp-control{
+  padding:18px;
+  border:0;
+  border-radius:14px;
+  background:#edf5e9;
+  font-size:30px;
+  font-weight:bold;
+  user-select:none;
+  -webkit-user-select:none;
+  touch-action:none;
+}
+
+.dp-ranking{
+  background:white;
+  border-radius:20px;
+  padding:15px;
+  margin-top:20px;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.dp-ranking h3{
+  text-align:center;
+}
+
+.dp-tabla{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.dp-tabla th,
+.dp-tabla td{
+  padding:10px 6px;
+  border-bottom:1px solid #e8eee5;
+}
+
+.dp-tabla th:last-child,
+.dp-tabla td:last-child{
+  text-align:right;
+}
+
+.dp-mensaje{
+  text-align:center;
+  min-height:20px;
+  margin:8px;
+  font-size:14px;
+}
+
+.dp-estado{
+  text-align:center;
+  font-weight:bold;
+  margin:10px;
+}
+
+@media(max-width:550px){
+
+  .dp-hud{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .dp-contenedor{
+    padding:12px;
+  }
+
+}
+</style>
+
+
+<div class="dp-contenedor">
+
+  <!-- TÍTULO -->
+
+  <div class="dp-titulo">
+
+    <h2>🍌 El Desafío del Plátano</h2>
+
+    <p>
+      Festival del Plátano · Santa Elena
+    </p>
+
+  </div>
+
+
+  <!-- =================================================
+       INICIO
+       ================================================= -->
+
+  <div id="dpInicio" class="dp-pantalla">
+
+    <h3>🎮 ¿Estás listo?</h3>
+
+    <p>
+      Recoge plátanos, consigue puntos
+      y evita las bombas.
+    </p>
+
+    <input
+      id="dpNombre"
+      class="dp-input"
+      type="text"
+      maxlength="20"
+      placeholder="Escribe tu nombre"
+      autocomplete="off"
+    >
+
+    <br>
+
+    <button
+      id="dpJugar"
+      class="dp-btn dp-btn-principal"
+    >
+      🍌 JUGAR
+    </button>
+
+    <div
+      id="dpMensajeInicio"
+      class="dp-mensaje"
+    ></div>
+
+  </div>
+
+
+  <!-- =================================================
+       JUEGO
+       ================================================= -->
+
+  <div id="dpJuego" class="dp-oculto">
+
+    <div class="dp-hud">
+
+      <div>
+        🍌 Puntos<br>
+        <span id="dpPuntos">0</span>
+      </div>
+
+      <div>
+        ⏱️ Tiempo<br>
+        <span id="dpTiempo">60</span>
+      </div>
+
+      <div>
+        ❤️ Vidas<br>
+        <span id="dpVidas">3</span>
+      </div>
+
+      <div>
+        🔥 Nivel<br>
+        <span id="dpNivel">1</span>
+      </div>
+
+    </div>
+
+
+    <canvas
+      id="dpCanvas"
+      width="900"
+      height="520"
+    ></canvas>
+
+
+    <div class="dp-controles">
+
+      <button
+        id="dpIzquierda"
+        class="dp-control"
+      >
+        ⬅️
+      </button>
+
+      <button
+        id="dpDerecha"
+        class="dp-control"
+      >
+        ➡️
+      </button>
+
+    </div>
+
+    <div class="dp-mensaje">
+      PC: usa ← → o A/D · Celular: usa los botones
+    </div>
+
+  </div>
+
+
+  <!-- =================================================
+       RESULTADO
+       ================================================= -->
+
+  <div
+    id="dpResultado"
+    class="dp-pantalla dp-oculto"
+  >
+
+    <h3>🏆 ¡Partida terminada!</h3>
+
+    <p id="dpResultadoTexto"></p>
+
+    <div
+      style="
+      font-size:50px;
+      font-weight:bold;
+      color:#28752e;
+      "
+    >
+      <span id="dpResultadoPuntos">0</span>
+    </div>
+
+    <p>puntos</p>
+
+    <div
+      id="dpGuardarEstado"
+      class="dp-estado"
+    >
+      Guardando puntuación...
+    </div>
+
+    <button
+      id="dpOtra"
+      class="dp-btn dp-btn-principal"
+    >
+      🔄 JUGAR DE NUEVO
+    </button>
+
+  </div>
+
+
+  <!-- =================================================
+       RANKING
+       ================================================= -->
+
+  <div class="dp-ranking">
+
+    <h3>🏆 Ranking del Festival</h3>
+
+    <table class="dp-tabla">
+
+      <thead>
+
+        <tr>
+          <th>#</th>
+          <th>Jugador</th>
+          <th>Puntos</th>
+        </tr>
+
+      </thead>
+
+      <tbody id="dpRanking">
+
+        <tr>
+          <td colspan="3" style="text-align:center">
+            Cargando ranking...
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <div
+      id="dpRankingEstado"
+      class="dp-mensaje"
+    ></div>
+
+  </div>
+
+</div>
+
+
+<script>
+(function(){
+
+"use strict";
+
+
+/* =====================================================
+   COMPROBAR SUPABASE
+   ===================================================== */
+
+if(
+  typeof supabaseClient === "undefined"
+){
+
+  console.error(
+    "No se encontró supabaseClient."
+  );
+
+  return;
+
+}
+
+
+/* =====================================================
+   ELEMENTOS
+   ===================================================== */
+
+const canvas =
+  document.getElementById("dpCanvas");
+
+const ctx =
+  canvas.getContext("2d");
+
+
+const inicio =
+  document.getElementById("dpInicio");
+
+const juego =
+  document.getElementById("dpJuego");
+
+const resultado =
+  document.getElementById("dpResultado");
+
+
+const nombreInput =
+  document.getElementById("dpNombre");
+
+const botonJugar =
+  document.getElementById("dpJugar");
+
+const botonOtra =
+  document.getElementById("dpOtra");
+
+
+const botonIzquierda =
+  document.getElementById("dpIzquierda");
+
+const botonDerecha =
+  document.getElementById("dpDerecha");
+
+
+const puntosTexto =
+  document.getElementById("dpPuntos");
+
+const tiempoTexto =
+  document.getElementById("dpTiempo");
+
+const vidasTexto =
+  document.getElementById("dpVidas");
+
+const nivelTexto =
+  document.getElementById("dpNivel");
+
+
+const mensajeInicio =
+  document.getElementById("dpMensajeInicio");
+
+const resultadoTexto =
+  document.getElementById("dpResultadoTexto");
+
+const resultadoPuntos =
+  document.getElementById("dpResultadoPuntos");
+
+const guardarEstado =
+  document.getElementById("dpGuardarEstado");
+
+const ranking =
+  document.getElementById("dpRanking");
+
+const rankingEstado =
+  document.getElementById("dpRankingEstado");
+
+
+/* =====================================================
+   CONFIGURACIÓN DEL JUEGO
+   ===================================================== */
+
+const W = canvas.width;
+const H = canvas.height;
+
+let jugador = "";
+let puntos = 0;
+let vidas = 3;
+let tiempo = 60;
+let nivel = 1;
+
+let jugando = false;
+
+let ultimoTiempo = 0;
+
+let objetos = [];
+let particulas = [];
+
+let jugadorX =
+  W / 2 - 55;
+
+const jugadorAncho = 110;
+const jugadorAlto = 35;
+
+const velocidadJugador = 650;
+
+let tiempoAparicion = 0;
+
+let combo = 0;
+let multiplicador = 1;
+
+const teclas = {
+  izquierda:false,
+  derecha:false
+};
+
+
+/* =====================================================
+   PANTALLAS
+   ===================================================== */
+
+function mostrarInicio(){
+
+  inicio.classList.remove(
+    "dp-oculto"
+  );
+
+  juego.classList.add(
+    "dp-oculto"
+  );
+
+  resultado.classList.add(
+    "dp-oculto"
+  );
+
+}
+
+
+function mostrarJuego(){
+
+  inicio.classList.add(
+    "dp-oculto"
+  );
+
+  juego.classList.remove(
+    "dp-oculto"
+  );
+
+  resultado.classList.add(
+    "dp-oculto"
+  );
+
+}
+
+
+function mostrarResultado(){
+
+  inicio.classList.add(
+    "dp-oculto"
+  );
+
+  juego.classList.add(
+    "dp-oculto"
+  );
+
+  resultado.classList.remove(
+    "dp-oculto"
+  );
+
+}
+
+
+/* =====================================================
+   HUD
+   ===================================================== */
+
+function actualizarHUD(){
+
+  puntosTexto.textContent =
+    Math.floor(puntos);
+
+  tiempoTexto.textContent =
+    Math.max(
+      0,
+      Math.ceil(tiempo)
+    );
+
+  vidasTexto.textContent =
+    "❤️".repeat(vidas) +
+    "🖤".repeat(3 - vidas);
+
+  nivelTexto.textContent =
+    nivel;
+
+}
+
+
+/* =====================================================
+   CREAR OBJETOS
+   ===================================================== */
+
+function crearObjeto(){
+
+  const numero =
+    Math.random();
+
+  let tipo = "platano";
+
+  if(numero < 0.12)
+    tipo = "bomba";
+
+  else if(numero < 0.22)
+    tipo = "dorado";
+
+  else if(numero < 0.30)
+    tipo = "estrella";
+
+
+  const tamano =
+    tipo === "bomba"
+    ? 23
+    : 25;
+
+
+  objetos.push({
+
+    tipo:tipo,
+
+    x:
+      tamano +
+      Math.random() *
+      (W - tamano * 2),
+
+    y:-40,
+
+    tamano:tamano,
+
+    angulo:
+      Math.random() *
+      Math.PI * 2,
+
+    velocidadRotacion:
+      (Math.random() - .5) * 3,
+
+    velocidad:
+      160 +
+      nivel * 35 +
+      Math.random() * 100
+
+  });
+
+}
+
+
+/* =====================================================
+   PARTÍCULAS
+   ===================================================== */
+
+function crearParticulas(
+  x,
+  y,
+  color,
+  cantidad
+){
+
+  for(
+    let i=0;
+    i<cantidad;
+    i++
+  ){
+
+    const angulo =
+      Math.random() *
+      Math.PI * 2;
+
+    const velocidad =
+      50 +
+      Math.random() * 150;
+
+    particulas.push({
+
+      x:x,
+      y:y,
+
+      vx:
+        Math.cos(angulo) *
+        velocidad,
+
+      vy:
+        Math.sin(angulo) *
+        velocidad,
+
+      tamano:
+        3 +
+        Math.random() * 4,
+
+      color:color,
+
+      vida:
+        .4 +
+        Math.random() * .3
+
+    });
+
+  }
+
+}
+
+
+function actualizarParticulas(dt){
+
+  for(
+    let i=particulas.length-1;
+    i>=0;
+    i--
+  ){
+
+    const p =
+      particulas[i];
+
+    p.x +=
+      p.vx * dt;
+
+    p.y +=
+      p.vy * dt;
+
+    p.vida -= dt;
+
+    if(p.vida <= 0){
+
+      particulas.splice(
+        i,
+        1
+      );
+
+    }
+
+  }
+
+}
+
+
+function dibujarParticulas(){
+
+  particulas.forEach(
+    p=>{
+
+      ctx.fillStyle =
+        p.color;
+
+      ctx.globalAlpha =
+        Math.max(
+          0,
+          p.vida / .7
+        );
+
+      ctx.beginPath();
+
+      ctx.arc(
+        p.x,
+        p.y,
+        p.tamano,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fill();
+
+      ctx.globalAlpha = 1;
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   FONDO
+   ===================================================== */
+
+function dibujarFondo(){
+
+  const gradiente =
+    ctx.createLinearGradient(
+      0,
+      0,
+      0,
+      H
+    );
+
+  gradiente.addColorStop(
+    0,
+    "#cceca9"
+  );
+
+  gradiente.addColorStop(
+    1,
+    "#76ad62"
+  );
+
+  ctx.fillStyle =
+    gradiente;
+
+  ctx.fillRect(
+    0,
+    0,
+    W,
+    H
+  );
+
+
+  ctx.fillStyle =
+    "rgba(255,255,255,.65)";
+
+
+  [
+    [120,90,55],
+    [180,100,40],
+    [730,90,60],
+    [800,105,40]
+  ].forEach(nube=>{
+
+    ctx.beginPath();
+
+    ctx.arc(
+      nube[0],
+      nube[1],
+      nube[2],
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+  });
+
+
+  ctx.fillStyle =
+    "#74a964";
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(0,350);
+
+  ctx.quadraticCurveTo(
+    180,
+    250,
+    350,
+    350
+  );
+
+  ctx.quadraticCurveTo(
+    550,
+    230,
+    900,
+    350
+  );
+
+  ctx.lineTo(900,H);
+
+  ctx.lineTo(0,H);
+
+  ctx.closePath();
+
+  ctx.fill();
+
+
+  ctx.fillStyle =
+    "#4d8d46";
+
+  ctx.fillRect(
+    0,
+    H-45,
+    W,
+    45
+  );
+
+}
+
+
+/* =====================================================
+   JUGADOR
+   ===================================================== */
+
+function dibujarJugador(){
+
+  const y =
+    H - 75;
+
+
+  ctx.fillStyle =
+    "rgba(0,0,0,.18)";
+
+  ctx.beginPath();
+
+  ctx.ellipse(
+    jugadorX + 55,
+    y + 48,
+    55,
+    8,
+    0,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fill();
+
+
+  ctx.fillStyle =
+    "#a86e27";
+
+  ctx.strokeStyle =
+    "#704618";
+
+  ctx.lineWidth = 3;
+
+  ctx.beginPath();
+
+  ctx.roundRect(
+    jugadorX,
+    y,
+    jugadorAncho,
+    jugadorAlto,
+    8
+  );
+
+  ctx.fill();
+
+  ctx.stroke();
+
+
+  ctx.strokeStyle =
+    "#e4ad5a";
+
+  ctx.lineWidth = 5;
+
+  ctx.beginPath();
+
+  ctx.arc(
+    jugadorX + 55,
+    y + 10,
+    30,
+    Math.PI,
+    0
+  );
+
+  ctx.stroke();
+
+
+  ctx.fillStyle =
+    "#3e853f";
+
+  ctx.beginPath();
+
+  ctx.ellipse(
+    jugadorX + 20,
+    y - 5,
+    18,
+    7,
+    -.4,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fill();
+
+
+  ctx.beginPath();
+
+  ctx.ellipse(
+    jugadorX + 90,
+    y - 5,
+    18,
+    7,
+    .4,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fill();
+
+}
+
+
+/* =====================================================
+   PLÁTANO
+   ===================================================== */
+
+function dibujarPlatano(
+  dorado
+){
+
+  const cuerpo =
+    dorado
+    ? "#FFE135"
+    : "#F4D03F";
+
+  const sombra =
+    dorado
+    ? "#D4AC0D"
+    : "#B7950B";
+
+
+  ctx.fillStyle =
+    cuerpo;
+
+  ctx.strokeStyle =
+    sombra;
+
+  ctx.lineWidth = 2.5;
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(-18,12);
+
+  ctx.bezierCurveTo(
+    -22,
+    -15,
+    12,
+    -22,
+    20,
+    8
+  );
+
+  ctx.bezierCurveTo(
+    8,
+    -8,
+    -12,
+    -5,
+    -18,
+    12
+  );
+
+  ctx.closePath();
+
+  ctx.fill();
+
+  ctx.stroke();
+
+
+  ctx.fillStyle =
+    "#5D4037";
+
+  ctx.beginPath();
+
+  ctx.arc(
+    -18,
+    12,
+    2.5,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fill();
+
+}
+
+
+/* =====================================================
+   ESTRELLA
+   ===================================================== */
+
+function dibujarEstrella(
+  cx,
+  cy,
+  exterior,
+  interior,
+  puntas
+){
+
+  let angulo =
+    -Math.PI / 2;
+
+  const paso =
+    Math.PI / puntas;
+
+  ctx.beginPath();
+
+  for(
+    let i=0;
+    i<puntas*2;
+    i++
+  ){
+
+    const radio =
+      i % 2 === 0
+      ? exterior
+      : interior;
+
+    const x =
+      cx +
+      Math.cos(angulo) *
+      radio;
+
+    const y =
+      cy +
+      Math.sin(angulo) *
+      radio;
+
+    if(i === 0)
+      ctx.moveTo(x,y);
+    else
+      ctx.lineTo(x,y);
+
+    angulo += paso;
+
+  }
+
+  ctx.closePath();
+
+}
+
+
+/* =====================================================
+   DIBUJAR OBJETO
+   ===================================================== */
+
+function dibujarObjeto(obj){
+
+  ctx.save();
+
+  ctx.translate(
+    obj.x,
+    obj.y
+  );
+
+  ctx.rotate(
+    obj.angulo
+  );
+
+
+  if(obj.tipo === "bomba"){
+
+    ctx.fillStyle =
+      "#292929";
+
+    ctx.beginPath();
+
+    ctx.arc(
+      0,
+      0,
+      obj.tamano,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    ctx.strokeStyle =
+      "#9b642d";
+
+    ctx.lineWidth = 4;
+
+    ctx.beginPath();
+
+    ctx.moveTo(8,-18);
+
+    ctx.lineTo(20,-28);
+
+    ctx.stroke();
+
+
+    ctx.fillStyle =
+      "#ffd447";
+
+    ctx.beginPath();
+
+    ctx.arc(
+      22,
+      -30,
+      5,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+  }
+
+  else if(
+    obj.tipo === "estrella"
+  ){
+
+    ctx.fillStyle =
+      "#ffe04d";
+
+    ctx.strokeStyle =
+      "#ad8410";
+
+    dibujarEstrella(
+      0,
+      0,
+      obj.tamano,
+      11,
+      5
+    );
+
+    ctx.fill();
+
+    ctx.stroke();
+
+  }
+
+  else{
+
+    dibujarPlatano(
+      obj.tipo === "dorado"
+    );
+
+  }
+
+
+  ctx.restore();
+
+}
+
+
+/* =====================================================
+   COLISIÓN
+   ===================================================== */
+
+function colision(obj){
+
+  const y =
+    H - 75;
+
+
+  return(
+    jugadorX <
+      obj.x + obj.tamano &&
+
+    jugadorX +
+      jugadorAncho >
+      obj.x - obj.tamano &&
+
+    y <
+      obj.y + obj.tamano &&
+
+    y +
+      jugadorAlto >
+      obj.y - obj.tamano
+  );
+
+}
+
+
+/* =====================================================
+   RECOGER
+   ===================================================== */
+
+function recoger(obj){
+
+  if(
+    obj.tipo === "bomba"
+  ){
+
+    crearParticulas(
+      obj.x,
+      obj.y,
+      "#333",
+      18
+    );
+
+    vidas--;
+
+    combo = 0;
+
+    multiplicador = 1;
+
+    if(vidas <= 0){
+
+      terminarJuego(
+        "Te quedaste sin vidas."
+      );
+
+    }
+
+    return;
+
+  }
+
+
+  combo++;
+
+
+  if(
+    combo % 5 === 0
+  ){
+
+    multiplicador =
+      Math.min(
+        5,
+        1 +
+        Math.floor(
+          combo / 5
+        )
+      );
+
+  }
+
+
+  let base = 10;
+
+  let color =
+    "#F4D03F";
+
+
+  if(
+    obj.tipo === "dorado"
+  ){
+
+    base = 50;
+
+    color = "#FFD700";
+
+  }
+
+
+  if(
+    obj.tipo === "estrella"
+  ){
+
+    base = 25;
+
+    color = "#FFFFFF";
+
+  }
+
+
+  crearParticulas(
+    obj.x,
+    obj.y,
+    color,
+    12
+  );
+
+
+  puntos +=
+    base *
+    multiplicador;
+
+}
+
+
+/* =====================================================
+   ACTUALIZAR
+   ===================================================== */
+
+function actualizar(dt){
+
+  tiempo -= dt;
+
+
+  nivel =
+    Math.min(
+      5,
+      1 +
+      Math.floor(
+        (60-tiempo)/15
+      )
+    );
+
+
+  if(teclas.izquierda){
+
+    jugadorX -=
+      velocidadJugador *
+      dt;
+
+  }
+
+
+  if(teclas.derecha){
+
+    jugadorX +=
+      velocidadJugador *
+      dt;
+
+  }
+
+
+  jugadorX =
+    Math.max(
+      5,
+      Math.min(
+        W-jugadorAncho-5,
+        jugadorX
+      )
+    );
+
+
+  tiempoAparicion -= dt;
+
+
+  if(
+    tiempoAparicion <= 0
+  ){
+
+    crearObjeto();
+
+    tiempoAparicion =
+      Math.max(
+        .22,
+        .75 -
+        nivel*.08
+      );
+
+  }
+
+
+  for(
+    let i=objetos.length-1;
+    i>=0;
+    i--
+  ){
+
+    const obj =
+      objetos[i];
+
+
+    obj.y +=
+      obj.velocidad *
+      dt;
+
+
+    obj.angulo +=
+      obj.velocidadRotacion *
+      dt;
+
+
+    if(
+      colision(obj)
+    ){
+
+      recoger(obj);
+
+      objetos.splice(
+        i,
+        1
+      );
+
+      continue;
+
+    }
+
+
+    if(
+      obj.y > H+50
+    ){
+
+      objetos.splice(
+        i,
+        1
+      );
+
+    }
+
+  }
+
+
+  actualizarParticulas(dt);
+
+  actualizarHUD();
+
+
+  if(
+    tiempo <= 0
+  ){
+
+    terminarJuego(
+      "Se acabó el tiempo."
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   DIBUJAR
+   ===================================================== */
+
+function dibujar(){
+
+  dibujarFondo();
+
+  objetos.forEach(
+    dibujarObjeto
+  );
+
+  dibujarParticulas();
+
+  dibujarJugador();
+
+}
+
+
+/* =====================================================
+   BUCLE
+   ===================================================== */
+
+function bucle(t){
+
+  if(!jugando)
+    return;
+
+
+  const dt =
+    Math.min(
+      .033,
+      (t-ultimoTiempo)/1000
+    );
+
+
+  ultimoTiempo = t;
+
+
+  actualizar(dt);
+
+  dibujar();
+
+
+  if(jugando){
+
+    requestAnimationFrame(
+      bucle
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   INICIAR
+   ===================================================== */
+
+function iniciarJuego(){
+
+  jugador =
+    nombreInput.value
+      .trim()
+      .replace(/\s+/g," ")
+      .slice(0,20);
+
+
+  if(
+    !jugador ||
+    jugador.length < 2
+  ){
+
+    mensajeInicio.textContent =
+      "⚠️ Escribe un nombre de mínimo 2 letras.";
+
+    return;
+
+  }
+
+
+  mensajeInicio.textContent =
+    "";
+
+
+  puntos = 0;
+
+  vidas = 3;
+
+  tiempo = 60;
+
+  nivel = 1;
+
+  combo = 0;
+
+  multiplicador = 1;
+
+  objetos = [];
+
+  particulas = [];
+
+
+  jugadorX =
+    W/2 -
+    jugadorAncho/2;
+
+
+  tiempoAparicion =
+    .4;
+
+
+  jugando = true;
+
+
+  actualizarHUD();
+
+  mostrarJuego();
+
+
+  ultimoTiempo =
+    performance.now();
+
+
+  requestAnimationFrame(
+    bucle
+  );
+
+}
+
+
+/* =====================================================
+   TERMINAR
+   ===========================
+  <section><div class="container"><div class="titulo"><h2>📸 Galería del festival</h2><p>Haz clic sobre cualquier fotografía para verla más grande.</p></div><div class="gallery"><div class="gallery-item" onclick="abrirImagen('imagenes/portada-festival.jpg','Letrero y muestra gastronómica')"><img src="imagenes/portada-festival.jpg" alt="Letrero y muestra gastronómica"></div><div class="gallery-item" onclick="abrirImagen('imagenes/gastronomia-1.jpg','Muestra gastronómica')"><img src="imagenes/gastronomia-1.jpg" alt="Muestra gastronómica"></div><div class="gallery-item" onclick="abrirImagen('imagenes/platana-1.jpg','Platana')"><img src="imagenes/platana-1.jpg" alt="Platana"></div><div class="gallery-item" onclick="abrirImagen('imagenes/gastronomia-2.jpg','Preparaciones del festival')"><img src="imagenes/gastronomia-2.jpg" alt="Preparaciones del festival"></div><div class="gallery-item" onclick="abrirImagen('imagenes/pizza-platano.jpg','Pizza de plátano hawaiana')"><img src="imagenes/pizza-platano.jpg" alt="Pizza de plátano hawaiana"></div><div class="gallery-item" onclick="abrirImagen('imagenes/bocadillo-platano.jpg','Bocadillos de plátano')"><img src="imagenes/bocadillo-platano.jpg" alt="Bocadillos de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/festival-productos.jpg','Productos del III Festival')"><img src="imagenes/festival-productos.jpg" alt="Productos del III Festival"></div><div class="gallery-item" onclick="abrirImagen('imagenes/dulce-hoja-platano.jpg','Dulce sobre hoja de plátano')"><img src="imagenes/dulce-hoja-platano.jpg" alt="Dulce sobre hoja de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/plato-hoja-platano.jpg','Plato servido sobre hoja')"><img src="imagenes/plato-hoja-platano.jpg" alt="Plato servido sobre hoja"></div><div class="gallery-item" onclick="abrirImagen('imagenes/participantes-festival.jpg','Participantes del festival')"><img src="imagenes/participantes-festival.jpg" alt="Participantes del festival"></div><div class="gallery-item" onclick="abrirImagen('imagenes/canapes-platano.jpg','Canapés de plátano')"><img src="imagenes/canapes-platano.jpg" alt="Canapés de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/puesto-hojas-platano.jpg','Puesto decorado con hojas de plátano')"><img src="imagenes/puesto-hojas-platano.jpg" alt="Puesto decorado con hojas de plátano"></div><div class="gallery-item" onclick="abrirImagen('imagenes/banner-festival-2026.jpg','Banner del III Festival del Plátano')"><img src="imagenes/banner-festival-2026.jpg" alt="Banner del III Festival del Plátano"></div></div></div></section>
 <section id="contacto"><div class="container"><div class="titulo"><h2>📩 Contáctanos</h2><p>Déjanos un mensaje sobre el Festival del Plátano.</p></div><form class="formulario" onsubmit="enviarFormulario(event)"><input type="text" id="nombre" placeholder="Tu nombre" required><input type="email" id="correo" placeholder="Tu correo electrónico" required><textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea><button class="btn" type="submit">Enviar mensaje</button></form></div></section>
 <footer><p>🍌 <span>Festival del Plátano — Santa Elena</span></p><p>Proyecto escolar interactivo • Tecnología e Informática</p><p>Las fotografías y el video integrados corresponden al material aportado para este proyecto.</p></footer>
 <button id="topBtn" onclick="subirArriba()">↑</button>

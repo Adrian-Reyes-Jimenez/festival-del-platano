@@ -4969,7 +4969,7 @@ async function guardarPuntuacion(){
 
     const {error} =
       await supabaseClient
-        .from("ranking_platano")
+        .from("ranking")
         .insert([
 
           {
@@ -5045,7 +5045,7 @@ async function cargarRanking(){
 
     const {data,error} =
       await supabaseClient
-        .from("ranking_platano")
+        .from("ranking")
         .select("nombre,puntos")
         .order(
           "puntos",
@@ -5075,7 +5075,7 @@ async function cargarRanking(){
 
 
       rankingEstado.textContent =
-        "Verifica la tabla ranking_platano en Supabase.";
+        "Verifica la tabla ranking en Supabase.";
 
 
       return;

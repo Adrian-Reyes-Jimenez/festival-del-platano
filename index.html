@@ -3185,7 +3185,7 @@ const SUPABASE_KEY =
 "sb_publishable_P9tj4R_tAMcJHrxrwlHflQ_D3jbWveq";
 
 const supabaseClient =
-  supabase.createClient(
+  window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
@@ -5395,8 +5395,9 @@ nombreInput.addEventListener(
    CARGAR RANKING
    ===================================================== */
 
-cargarRanking();
-
+document.addEventListener("DOMContentLoaded", async function(){
+  await cargarRanking();
+});
 
 })();
 

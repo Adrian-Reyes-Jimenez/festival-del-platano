@@ -893,7 +893,7 @@ section{
 
 
 /* =====================================================
-   GALERÍA
+   GALERÍA (MEJORADA)
    ===================================================== */
 
 .gallery{
@@ -908,11 +908,12 @@ section{
   overflow:hidden;
   cursor:pointer;
   box-shadow:0 5px 15px rgba(0,0,0,.12);
-  transition:.3s
+  transition:transform .3s ease, box-shadow .3s ease
 }
 
 .gallery-item:hover{
-  transform:scale(1.03)
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:0 10px 20px rgba(0,0,0,.2)
 }
 
 .gallery-item img{
@@ -978,13 +979,14 @@ footer span{
 
 
 /* =====================================================
-   MODAL
+   MODAL (MEJORADO CON NAVEGACIÓN Y VISOR DE GALERÍA)
    ===================================================== */
 
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.78);
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(6px);
   display:none;
   align-items:center;
   justify-content:center;
@@ -997,45 +999,100 @@ footer span{
 }
 
 .modal-box{
-  background:#fff;
-  max-width:850px;
+  background:transparent;
+  max-width:900px;
+  width:100%;
   max-height:90vh;
-  overflow:auto;
-  border-radius:20px;
-  padding:18px;
-  position:relative
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
 }
 
 .modal-box img{
   max-width:100%;
-  max-height:70vh;
+  max-height:75vh;
   display:block;
   margin:auto;
-  border-radius:14px
+  border-radius:14px;
+  box-shadow:0 8px 30px rgba(0,0,0,.5);
+  animation:zoomIn 0.25s ease
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .modal-box h2{
-  color:#246329;
-  margin-bottom:8px
+  color:#ffd83d;
+  margin-top:15px;
+  font-size:22px;
+  text-align:center;
+  text-shadow:0 2px 4px rgba(0,0,0,.8)
 }
 
 .modal-box p{
-  line-height:1.6
+  color:#e0e0e0;
+  line-height:1.6;
+  text-align:center;
+  margin-top:6px;
+  font-size:16px
 }
 
 .close{
-  position:absolute;
-  right:10px;
-  top:10px;
-  width:38px;
-  height:38px;
+  position:fixed;
+  top:20px;
+  right:25px;
+  width:45px;
+  height:45px;
   border:0;
   border-radius:50%;
-  background:#000a;
+  background:rgba(255,255,255,.2);
   color:#fff;
-  font-size:22px;
+  font-size:28px;
   cursor:pointer;
-  z-index:3
+  z-index:2005;
+  transition:background .2s
+}
+
+.close:hover{
+  background:rgba(255,255,255,.4)
+}
+
+/* Botones flotantes del carrusel */
+.nav-btn{
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(255,255,255,.2);
+  color:#fff;
+  border:0;
+  font-size:28px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  cursor:pointer;
+  z-index:2005;
+  transition:background .2s, transform .2s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  user-select:none
+}
+
+.nav-btn:hover{
+  background:rgba(255,255,255,.4);
+  transform:translateY(-50%) scale(1.08)
+}
+
+.prev-btn{
+  left:20px
+}
+
+.next-btn{
+  right:20px
 }
 
 
@@ -1150,6 +1207,20 @@ footer span{
 
   .dp-reglas{
     grid-template-columns:repeat(2,1fr)
+  }
+
+  .nav-btn{
+    width:40px;
+    height:40px;
+    font-size:20px
+  }
+
+  .prev-btn{
+    left:10px
+  }
+
+  .next-btn{
+    right:10px
   }
 
 }
@@ -2806,7 +2877,7 @@ Cargando ranking...
 </h2>
 
 <p>
-Haz clic sobre cualquier fotografía para verla más grande.
+Haz clic sobre cualquier fotografía para navegar por la galería.
 </p>
 
 </div>
@@ -2817,10 +2888,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/portada-festival.jpg',
-    'Letrero y muestra gastronómica'
-  )"
+  onclick="abrirImagen(0)"
 >
 
 <img
@@ -2834,10 +2902,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/gastronomia-1.jpg',
-    'Muestra gastronómica'
-  )"
+  onclick="abrirImagen(1)"
 >
 
 <img
@@ -2851,10 +2916,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/platana-1.jpg',
-    'Platana'
-  )"
+  onclick="abrirImagen(2)"
 >
 
 <img
@@ -2868,10 +2930,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/gastronomia-2.jpg',
-    'Preparaciones del festival'
-  )"
+  onclick="abrirImagen(3)"
 >
 
 <img
@@ -2885,10 +2944,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/pizza-platano.jpg',
-    'Pizza de plátano hawaiana'
-  )"
+  onclick="abrirImagen(4)"
 >
 
 <img
@@ -2902,10 +2958,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/bocadillo-platano.jpg',
-    'Bocadillos de plátano'
-  )"
+  onclick="abrirImagen(5)"
 >
 
 <img
@@ -2919,10 +2972,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/festival-productos.jpg',
-    'Productos del III Festival'
-  )"
+  onclick="abrirImagen(6)"
 >
 
 <img
@@ -2936,10 +2986,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/dulce-hoja-platano.jpg',
-    'Dulce sobre hoja de plátano'
-  )"
+  onclick="abrirImagen(7)"
 >
 
 <img
@@ -2953,10 +3000,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/plato-hoja-platano.jpg',
-    'Plato servido sobre hoja'
-  )"
+  onclick="abrirImagen(8)"
 >
 
 <img
@@ -2970,10 +3014,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/participantes-festival.jpg',
-    'Participantes del festival'
-  )"
+  onclick="abrirImagen(9)"
 >
 
 <img
@@ -2987,10 +3028,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/canapes-platano.jpg',
-    'Canapés de plátano'
-  )"
+  onclick="abrirImagen(10)"
 >
 
 <img
@@ -3004,10 +3042,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/puesto-hojas-platano.jpg',
-    'Puesto decorado con hojas de plátano'
-  )"
+  onclick="abrirImagen(11)"
 >
 
 <img
@@ -3021,10 +3056,7 @@ Haz clic sobre cualquier fotografía para verla más grande.
 
 <div
   class="gallery-item"
-  onclick="abrirImagen(
-    'imagenes/banner-festival-2026.jpg',
-    'Banner del III Festival del Plátano'
-  )"
+  onclick="abrirImagen(12)"
 >
 
 <img
@@ -3144,15 +3176,13 @@ al material aportado para este proyecto.
 
 
 <!-- =====================================================
-     MODAL
+     MODAL DE GALERÍA (MEJORADO CON CONTROLES Y CARRUSEL)
      ===================================================== -->
 
 <div
   class="modal"
   id="modal"
 >
-
-<div class="modal-box">
 
 <button
   class="close"
@@ -3161,10 +3191,26 @@ al material aportado para este proyecto.
 ×
 </button>
 
+<button 
+  class="nav-btn prev-btn" 
+  onclick="cambiarImagenGaleria(-1)"
+>
+❮
+</button>
+
+<div class="modal-box">
+
 <div id="modalContent">
 </div>
 
 </div>
+
+<button 
+  class="nav-btn next-btn" 
+  onclick="cambiarImagenGaleria(1)"
+>
+❯
+</button>
 
 </div>
 
@@ -3363,23 +3409,24 @@ function responder(boton,correcto){
 
 
 /* =====================================================
-   IMÁGENES Y MODALES
+   IMÁGENES Y MODALES (MEJORADO CON NAVEGACIÓN Y CARRUSEL)
    ===================================================== */
 
-function abrirImagen(src,titulo){
+let itemsGaleria = [];
+let indiceGaleriaActual = 0;
+let esModoGaleria = false;
 
-  document
-    .getElementById("modalContent")
-    .innerHTML =
-      '<img src="' +
-      src +
-      '" alt="' +
-      titulo +
-      '">' +
-      '<h2>' +
-      titulo +
-      '</h2>';
+document.addEventListener("DOMContentLoaded", function(){
+  itemsGaleria = Array.from(document.querySelectorAll('.gallery-item img'));
+});
 
+function abrirImagen(index){
+
+  esModoGaleria = true;
+  indiceGaleriaActual = index;
+  actualizarContenidoGaleria();
+
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = "flex");
 
   document
     .getElementById("modal")
@@ -3388,8 +3435,38 @@ function abrirImagen(src,titulo){
 
 }
 
+function cambiarImagenGaleria(paso){
+  if(!esModoGaleria || itemsGaleria.length === 0) return;
+
+  indiceGaleriaActual += paso;
+
+  if(indiceGaleriaActual < 0){
+    indiceGaleriaActual = itemsGaleria.length - 1;
+  } else if(indiceGaleriaActual >= itemsGaleria.length){
+    indiceGaleriaActual = 0;
+  }
+
+  actualizarContenidoGaleria();
+}
+
+function actualizarContenidoGaleria(){
+  const imgActual = itemsGaleria[indiceGaleriaActual];
+  const src = imgActual.src;
+  const titulo = imgActual.alt || 'Fotografía del festival';
+
+  document
+    .getElementById("modalContent")
+    .innerHTML =
+      '<img src="' + src + '" alt="' + titulo + '">' +
+      '<h2>' + titulo + '</h2>' +
+      '<p>Imagen ' + (indiceGaleriaActual + 1) + ' de ' + itemsGaleria.length + '</p>';
+}
+
 
 function abrirPlato(titulo,texto,src){
+
+  esModoGaleria = false;
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = "none");
 
   document
     .getElementById("modalContent")
@@ -3416,6 +3493,9 @@ function abrirPlato(titulo,texto,src){
 
 
 function lugar(titulo,texto){
+
+  esModoGaleria = false;
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = "none");
 
   document
     .getElementById("modalContent")
@@ -3460,6 +3540,25 @@ document
 
     }
   );
+
+
+/* Navegación por Teclado */
+document.addEventListener("keydown", function(e){
+  const modal = document.getElementById("modal");
+  if(modal && modal.classList.contains("open")){
+    if(e.key === "Escape"){
+      cerrarModal();
+    }
+    if(esModoGaleria){
+      if(e.key === "ArrowRight"){
+        cambiarImagenGaleria(1);
+      }
+      if(e.key === "ArrowLeft"){
+        cambiarImagenGaleria(-1);
+      }
+    }
+  }
+});
 
 
 

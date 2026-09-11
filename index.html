@@ -893,34 +893,103 @@ section{
 
 
 /* =====================================================
-   GALERÍA (MEJORADA)
+   CARRUSEL 3D GALERÍA
    ===================================================== */
-
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
 }
 
-.gallery-item{
-  height:220px;
-  border-radius:18px;
-  overflow:hidden;
-  cursor:pointer;
-  box-shadow:0 5px 15px rgba(0,0,0,.12);
-  transition:transform .3s ease, box-shadow .3s ease
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.gallery-item:hover{
-  transform:translateY(-5px) scale(1.02);
-  box-shadow:0 10px 20px rgba(0,0,0,.2)
+.gallery-item {
+  position: absolute;
+  width: 280px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  background: #fff;
 }
 
-.gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; /* Evita que la imagen interfiera con el clic del div */
+}
+
+/* Flechas del carrusel */
+.car-btn {
+  background: rgba(36, 99, 41, 0.1);
+  color: #246329;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  transition: 0.3s;
+  position: absolute;
+}
+
+.car-btn:hover {
+  background: #246329;
+  color: #fff;
+}
+
+.left-btn { left: 0; }
+.right-btn { right: 0; }
+
+/* Puntos de navegación */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d6e3d1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot:hover {
+  background: #a4c79d;
+}
+
+.dot.active {
+  background: #246329;
+  transform: scale(1.3);
+}
+
+@media(max-width: 600px) {
+  .gallery-item {
+    width: 200px;
+    height: 300px;
+  }
+  .carousel-container { height: 350px; }
 }
 
 
@@ -1156,9 +1225,6 @@ footer span{
     grid-template-columns:1fr
   }
 
-  .gallery{
-    grid-template-columns:repeat(2,1fr)
-  }
 
   .map{
     min-height:560px
@@ -1227,10 +1293,6 @@ footer span{
 
 
 @media(max-width:500px){
-
-  .gallery{
-    grid-template-columns:1fr
-  }
 
   .hero h2{
     font-size:25px
@@ -2487,7 +2549,7 @@ Otro dato
 <div class="question">
 
 <h3>
-5. ¿En qué lugar se lleva a cabo el Festival del Plátano?
+4. ¿En qué lugar se lleva a cabo el Festival del Plátano?
 </h3>
 
 <button
@@ -2898,214 +2960,39 @@ Cargando ranking...
 
 
 <!-- =====================================================
-     GALERÍA
+     GALERÍA (EFECTO CARRUSEL 3D)
      ===================================================== -->
-
 <section>
-
-<div class="container">
-
-<div class="titulo">
-
-<h2>
-📸 Galería del festival
-</h2>
-
-<p>
-Haz clic sobre cualquier fotografía para navegar por la galería.
-</p>
-
-</div>
-
-
-<div class="gallery">
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(0)"
->
-
-<img
-  src="imagenes/portada-festival.jpg"
-  alt="Letrero y muestra gastronómica"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(1)"
->
-
-<img
-  src="imagenes/gastronomia-1.jpg"
-  alt="Muestra gastronómica"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(2)"
->
-
-<img
-  src="imagenes/platana-1.jpg"
-  alt="Platana"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(3)"
->
-
-<img
-  src="imagenes/gastronomia-2.jpg"
-  alt="Preparaciones del festival"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(4)"
->
-
-<img
-  src="imagenes/pizza-platano.jpg"
-  alt="Pizza de plátano hawaiana"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(5)"
->
-
-<img
-  src="imagenes/bocadillo-platano.jpg"
-  alt="Bocadillos de plátano"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(6)"
->
-
-<img
-  src="imagenes/festival-productos.jpg"
-  alt="Productos del III Festival"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(7)"
->
-
-<img
-  src="imagenes/dulce-hoja-platano.jpg"
-  alt="Dulce sobre hoja de plátano"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(8)"
->
-
-<img
-  src="imagenes/plato-hoja-platano.jpg"
-  alt="Plato servido sobre hoja"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(9)"
->
-
-<img
-  src="imagenes/participantes-festival.jpg"
-  alt="Participantes del festival"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(10)"
->
-
-<img
-  src="imagenes/canapes-platano.jpg"
-  alt="Canapés de plátano"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(11)"
->
-
-<img
-  src="imagenes/puesto-hojas-platano.jpg"
-  alt="Puesto decorado con hojas de plátano"
->
-
-</div>
-
-
-
-<div
-  class="gallery-item"
-  onclick="abrirImagen(12)"
->
-
-<img
-  src="imagenes/banner-festival-2026.jpg"
-  alt="Banner del III Festival del Plátano"
->
-
-</div>
-
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="titulo">
+      <h2>📸 Galería del festival</h2>
+      <p>Haz clic en la imagen central para ampliarla. Usa las flechas o puntos para navegar.</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <button class="car-btn left-btn" onclick="moverCarrusel(-1)">&#10094;</button>
+      
+      <div class="carousel-container" id="galleryCarousel">
+        <div class="gallery-item" onclick="abrirImagen(0)"><img src="imagenes/portada-festival.jpg" alt="Letrero"></div>
+        <div class="gallery-item" onclick="abrirImagen(1)"><img src="imagenes/gastronomia-1.jpg" alt="Muestra"></div>
+        <div class="gallery-item" onclick="abrirImagen(2)"><img src="imagenes/platana-1.jpg" alt="Platana"></div>
+        <div class="gallery-item" onclick="abrirImagen(3)"><img src="imagenes/gastronomia-2.jpg" alt="Preparaciones"></div>
+        <div class="gallery-item" onclick="abrirImagen(4)"><img src="imagenes/pizza-platano.jpg" alt="Pizza"></div>
+        <div class="gallery-item" onclick="abrirImagen(5)"><img src="imagenes/bocadillo-platano.jpg" alt="Bocadillos"></div>
+        <div class="gallery-item" onclick="abrirImagen(6)"><img src="imagenes/festival-productos.jpg" alt="Productos"></div>
+        <div class="gallery-item" onclick="abrirImagen(7)"><img src="imagenes/dulce-hoja-platano.jpg" alt="Dulce"></div>
+        <div class="gallery-item" onclick="abrirImagen(8)"><img src="imagenes/plato-hoja-platano.jpg" alt="Plato"></div>
+        <div class="gallery-item" onclick="abrirImagen(9)"><img src="imagenes/participantes-festival.jpg" alt="Participantes"></div>
+        <div class="gallery-item" onclick="abrirImagen(10)"><img src="imagenes/canapes-platano.jpg" alt="Canapés"></div>
+        <div class="gallery-item" onclick="abrirImagen(11)"><img src="imagenes/puesto-hojas-platano.jpg" alt="Puesto"></div>
+        <div class="gallery-item" onclick="abrirImagen(12)"><img src="imagenes/banner-festival-2026.jpg" alt="Banner"></div>
+      </div>
+
+      <button class="car-btn right-btn" onclick="moverCarrusel(1)">&#10095;</button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
 </section>
 
 
@@ -3650,6 +3537,74 @@ function subirArriba(){
     behavior:"smooth"
   });
 
+}
+
+
+/* =====================================================
+   LÓGICA DEL CARRUSEL 3D
+   ===================================================== */
+let indiceCarrusel = 0;
+let itemsCarrusel = [];
+
+document.addEventListener("DOMContentLoaded", function() {
+  itemsCarrusel = Array.from(document.querySelectorAll('#galleryCarousel .gallery-item'));
+  const dotsContainer = document.getElementById('carouselDots');
+  
+  // Generar puntos dinámicamente
+  itemsCarrusel.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.onclick = () => irAImagen(index);
+    dotsContainer.appendChild(dot);
+  });
+
+  actualizarCarrusel();
+});
+
+function moverCarrusel(paso) {
+  indiceCarrusel += paso;
+  if (indiceCarrusel < 0) indiceCarrusel = itemsCarrusel.length - 1;
+  if (indiceCarrusel >= itemsCarrusel.length) indiceCarrusel = 0;
+  actualizarCarrusel();
+}
+
+function irAImagen(index) {
+  indiceCarrusel = index;
+  actualizarCarrusel();
+}
+
+function actualizarCarrusel() {
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === indiceCarrusel));
+
+  const total = itemsCarrusel.length;
+
+  itemsCarrusel.forEach((item, i) => {
+    // Cálculo circular para que el carrusel sea infinito
+    let diff = i - indiceCarrusel;
+    if (diff > Math.floor(total / 2)) diff -= total;
+    if (diff < -Math.floor(total / 2)) diff += total;
+
+    const absDiff = Math.abs(diff);
+
+    if (absDiff > 2) {
+      // Ocultar tarjetas lejanas
+      item.style.opacity = 0;
+      item.style.transform = `translateX(${Math.sign(diff) * 100}%) scale(0.5)`;
+      item.style.zIndex = -1;
+      item.style.pointerEvents = 'none';
+    } else {
+      // Mostrar y posicionar tarjetas centrales
+      item.style.opacity = 1 - (absDiff * 0.2);
+      item.style.zIndex = 10 - absDiff;
+      item.style.pointerEvents = absDiff === 0 ? 'auto' : 'none'; // Solo la del centro abre el modal
+      
+      const translateX = diff * 65; // Ajusta qué tan separadas están
+      const scale = 1 - (absDiff * 0.2); // Escala progresiva (1, 0.8, 0.6)
+      
+      item.style.transform = `translateX(${translateX}%) scale(${scale})`;
+    }
+  });
 }
 
 </script>

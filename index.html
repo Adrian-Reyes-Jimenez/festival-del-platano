@@ -320,23 +320,72 @@ section{
   border-radius:18px;
   overflow:hidden;
   box-shadow:0 5px 20px rgba(0,0,0,.1);
-  transition:.3s;
-  cursor:pointer
+  transition:.3s
 }
 
 .food:hover{
   transform:translateY(-7px)
 }
 
-.food img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  display:block
+/* Estilos para el carrusel interno de cada tarjeta gastronómica */
+.food-carousel {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background: #000;
 }
 
+.food-carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.food-carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.food-carousel-img.active {
+  opacity: 1;
+}
+
+.food-car-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.food-car-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.food-prev-btn { left: 10px; }
+.food-next-btn { right: 10px; }
+
 .food-body{
-  padding:20px
+  padding:20px;
+  cursor: pointer;
 }
 
 .food-body h3{
@@ -1626,7 +1675,7 @@ Cultura + Agricultura + Tradición + Gastronomía
 </h2>
 
 <p>
-Explora las preparaciones que aparecen en nuestras fotografías.
+Explora las preparaciones que aparecen en nuestras fotografías. (Usa las flechas para ver más fotos por tarjeta).
 </p>
 
 </div>
@@ -1668,282 +1717,154 @@ Especiales
 <div class="food-grid">
 
 
-<article
-  class="food comida"
-  data-type="salado"
-  onclick="abrirPlato(
-    'Muestra gastronómica',
-    'Una muestra con diferentes preparaciones hechas a base de plátano y presentadas sobre hojas.',
-    'imagenes/gastronomia-1.jpg'
-  )"
->
-
-<img
-  src="imagenes/gastronomia-1.jpg"
-  alt="Muestra gastronómica"
->
-
-<div class="food-body">
-
-<span class="tag">
-SALADO
-</span>
-
-<h3>
-Muestra gastronómica
-</h3>
-
-<p>
-Variedad de preparaciones del festival.
-</p>
-
-</div>
-
+<!-- Tarjeta 1 con Carrusel Múltiple -->
+<article class="food comida" data-type="salado">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/gastronomia-1.jpg" alt="Muestra gastronómica 1" class="food-carousel-img active">
+      <img src="imagenes/gastronomia-2.jpg" alt="Muestra gastronómica 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Muestra gastronómica', 'Una muestra con diferentes preparaciones hechas a base de plátano y presentadas sobre hojas.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">SALADO</span>
+    <h3>Muestra gastronómica</h3>
+    <p>Variedad de preparaciones del festival.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="especial"
-  onclick="abrirPlato(
-    'Plataña',
-    'Preparación presentada en el festival como una propuesta especial de la muestra gastronómica.',
-    'imagenes/platana-1.jpg'
-  )"
->
-
-<img
-  src="imagenes/platana-1.jpg"
-  alt="Plataña"
->
-
-<div class="food-body">
-
-<span class="tag">
-ESPECIAL
-</span>
-
-<h3>
-“Plataña”
-</h3>
-
-<p>
-Una preparación destacada de la muestra.
-</p>
-
-</div>
-
+<!-- Tarjeta 2 con Carrusel Múltiple -->
+<article class="food comida" data-type="especial">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/platana-1.jpg" alt="Plataña 1" class="food-carousel-img active">
+      <img src="imagenes/portada-festival.jpg" alt="Plataña 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('“Plataña”', 'Preparación presentada en el festival como una propuesta especial de la muestra gastronómica.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">ESPECIAL</span>
+    <h3>“Plataña”</h3>
+    <p>Una preparación destacada de la muestra.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="especial"
-  onclick="abrirPlato(
-    'Pizza de plátano hawaiana',
-    'Una propuesta creativa que utiliza el plátano como ingrediente principal.',
-    'imagenes/pizza-platano.jpg'
-  )"
->
-
-<img
-  src="imagenes/pizza-platano.jpg"
-  alt="Pizza de plátano hawaiana"
->
-
-<div class="food-body">
-
-<span class="tag">
-ESPECIAL
-</span>
-
-<h3>
-Pizza de plátano hawaiana
-</h3>
-
-<p>
-Innovación gastronómica del festival.
-</p>
-
-</div>
-
+<!-- Tarjeta 3 con Carrusel Múltiple -->
+<article class="food comida" data-type="especial">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/pizza-platano.jpg" alt="Pizza de plátano hawaiana 1" class="food-carousel-img active">
+      <img src="imagenes/canapes-platano.jpg" alt="Pizza de plátano hawaiana 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Pizza de plátano hawaiana', 'Una propuesta creativa que utiliza el plátano como ingrediente principal.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">ESPECIAL</span>
+    <h3>Pizza de plátano hawaiana</h3>
+    <p>Innovación gastronómica del festival.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="dulce"
-  onclick="abrirPlato(
-    'Bocadillo de plátano',
-    'Una presentación artesanal donde el plátano se convierte en un dulce del festival.',
-    'imagenes/bocadillo-platano.jpg'
-  )"
->
-
-<img
-  src="imagenes/bocadillo-platano.jpg"
-  alt="Bocadillo de plátano"
->
-
-<div class="food-body">
-
-<span class="tag">
-DULCE
-</span>
-
-<h3>
-Bocadillo de plátano
-</h3>
-
-<p>
-Dulce presentado de forma artesanal.
-</p>
-
-</div>
-
+<!-- Tarjeta 4 con Carrusel Múltiple -->
+<article class="food comida" data-type="dulce">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/bocadillo-platano.jpg" alt="Bocadillo de plátano 1" class="food-carousel-img active">
+      <img src="imagenes/dulce-hoja-platano.jpg" alt="Bocadillo de plátano 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Bocadillo de plátano', 'Una presentación artesanal donde el plátano se convierte en un dulce del festival.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">DULCE</span>
+    <h3>Bocadillo de plátano</h3>
+    <p>Dulce presentado de forma artesanal.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="salado"
-  onclick="abrirPlato(
-    'Muestra del III Festival',
-    'Productos y preparaciones identificados con la imagen del festival.',
-    'imagenes/festival-productos.jpg'
-  )"
->
-
-<img
-  src="imagenes/festival-productos.jpg"
-  alt="Productos del III Festival"
->
-
-<div class="food-body">
-
-<span class="tag">
-SALADO
-</span>
-
-<h3>
-Productos del festival
-</h3>
-
-<p>
-Empaques y preparaciones con identidad propia.
-</p>
-
-</div>
-
+<!-- Tarjeta 5 con Carrusel Múltiple -->
+<article class="food comida" data-type="salado">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/festival-productos.jpg" alt="Productos del festival 1" class="food-carousel-img active">
+      <img src="imagenes/plato-hoja-platano.jpg" alt="Productos del festival 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Productos del festival', 'Productos y preparaciones identificados con la imagen del festival.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">SALADO</span>
+    <h3>Productos del festival</h3>
+    <p>Empaques y preparaciones con identidad propia.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="dulce"
-  onclick="abrirPlato(
-    'Dulce sobre hoja de plátano',
-    'Una presentación donde incluso la hoja hace parte de la experiencia.',
-    'imagenes/dulce-hoja-platano.jpg'
-  )"
->
-
-<img
-  src="imagenes/dulce-hoja-platano.jpg"
-  alt="Dulce sobre hoja de plátano"
->
-
-<div class="food-body">
-
-<span class="tag">
-DULCE
-</span>
-
-<h3>
-Dulce tradicional
-</h3>
-
-<p>
-Presentado sobre una hoja de plátano.
-</p>
-
-</div>
-
+<!-- Tarjeta 6 con Carrusel Múltiple -->
+<article class="food comida" data-type="dulce">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/dulce-hoja-platano.jpg" alt="Dulce tradicional 1" class="food-carousel-img active">
+      <img src="imagenes/bocadillo-platano.jpg" alt="Dulce tradicional 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Dulce tradicional', 'Una presentación donde incluso la hoja hace parte de la experiencia.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">DULCE</span>
+    <h3>Dulce tradicional</h3>
+    <p>Presentado sobre una hoja de plátano.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="salado"
-  onclick="abrirPlato(
-    'Plato servido sobre hoja',
-    'Una muestra de comida acompañada con plátano y presentada de manera tradicional.',
-    'imagenes/plato-hoja-platano.jpg'
-  )"
->
-
-<img
-  src="imagenes/plato-hoja-platano.jpg"
-  alt="Plato servido sobre hoja de plátano"
->
-
-<div class="food-body">
-
-<span class="tag">
-SALADO
-</span>
-
-<h3>
-Plato de la comunidad
-</h3>
-
-<p>
-La hoja también forma parte de la presentación.
-</p>
-
-</div>
-
+<!-- Tarjeta 7 con Carrusel Múltiple -->
+<article class="food comida" data-type="salado">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/plato-hoja-platano.jpg" alt="Plato de la comunidad 1" class="food-carousel-img active">
+      <img src="imagenes/gastronomia-1.jpg" alt="Plato de la comunidad 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Plato de la comunidad', 'Una muestra de comida acompañada con plátano y presentada de manera tradicional.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">SALADO</span>
+    <h3>Plato de la comunidad</h3>
+    <p>La hoja también forma parte de la presentación.</p>
+  </div>
 </article>
 
 
 
-<article
-  class="food comida"
-  data-type="salado"
-  onclick="abrirPlato(
-    'Canapés de plátano',
-    'Pequeñas porciones elaboradas con una base de plátano y diferentes ingredientes.',
-    'imagenes/canapes-platano.jpg'
-  )"
->
-
-<img
-  src="imagenes/canapes-platano.jpg"
-  alt="Canapés de plátano"
->
-
-<div class="food-body">
-
-<span class="tag">
-SALADO
-</span>
-
-<h3>
-Canapés de plátano
-</h3>
-
-<p>
-Bocados para compartir durante el festival.
-</p>
-
-</div>
-
+<!-- Tarjeta 8 con Carrusel Múltiple -->
+<article class="food comida" data-type="salado">
+  <div class="food-carousel">
+    <div class="food-carousel-track">
+      <img src="imagenes/canapes-platano.jpg" alt="Canapés de plátano 1" class="food-carousel-img active">
+      <img src="imagenes/pizza-platano.jpg" alt="Canapés de plátano 2" class="food-carousel-img">
+    </div>
+    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+  </div>
+  <div class="food-body" onclick="abrirPlato('Canapés de plátano', 'Pequeñas porciones elaboradas con una base de plátano y diferentes ingredientes.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+    <span class="tag">SALADO</span>
+    <h3>Canapés de plátano</h3>
+    <p>Bocados para compartir durante el festival.</p>
+  </div>
 </article>
 
 
@@ -3481,6 +3402,29 @@ document.addEventListener("keydown", function(e){
     }
   }
 });
+
+
+
+/* =====================================================
+   CARRUSEL INTERNO DE TARJETAS DE GASTRONOMÍA
+   ===================================================== */
+function cambiarImagenTarjeta(button, direccion) {
+  const container = button.closest('.food-carousel');
+  const images = container.querySelectorAll('.food-carousel-img');
+  
+  let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+  
+  images[currentIndex].classList.remove('active');
+  
+  currentIndex += direccion;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  } else if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  
+  images[currentIndex].classList.add('active');
+}
 
 
 

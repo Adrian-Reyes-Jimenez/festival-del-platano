@@ -334,6 +334,7 @@ section{
   height: 210px;
   overflow: hidden;
   background: #000;
+  cursor: pointer;
 }
 
 .food-carousel-track {
@@ -1074,7 +1075,8 @@ footer span{
   align-items:center;
   justify-content:center;
   z-index:2000;
-  padding:20px
+  padding:20px;
+  touch-action: pan-y;
 }
 
 .modal.open{
@@ -1100,7 +1102,8 @@ footer span{
   margin:auto;
   border-radius:14px;
   box-shadow:0 8px 30px rgba(0,0,0,.5);
-  animation:zoomIn 0.25s ease
+  animation:zoomIn 0.25s ease;
+  user-select: none;
 }
 
 @keyframes zoomIn {
@@ -1679,15 +1682,15 @@ Especiales
 
 <!-- Tarjeta 1 -->
 <article class="food comida" data-type="salado">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/gastronomia-1.jpg" alt="Muestra gastronómica 1" class="food-carousel-img active">
       <img src="imagenes/gastronomia-2.jpg" alt="Muestra gastronómica 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Muestra gastronómica', 'Una muestra con diferentes preparaciones hechas a base de plátano y presentadas sobre hojas.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">SALADO</span>
     <h3>Muestra gastronómica</h3>
     <p>Variedad de preparaciones del festival.</p>
@@ -1698,15 +1701,15 @@ Especiales
 
 <!-- Tarjeta 2 -->
 <article class="food comida" data-type="especial">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/platana-1.jpg" alt="Plataña 1" class="food-carousel-img active">
       <img src="imagenes/portada-festival.jpg" alt="Plataña 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('“Plataña”', 'Preparación presentada en el festival como una propuesta especial de la muestra gastronómica.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">ESPECIAL</span>
     <h3>“Plataña”</h3>
     <p>Una preparación destacada de la muestra.</p>
@@ -1717,15 +1720,15 @@ Especiales
 
 <!-- Tarjeta 3 -->
 <article class="food comida" data-type="especial">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/pizza-platano.jpg" alt="Pizza de plátano hawaiana 1" class="food-carousel-img active">
       <img src="imagenes/canapes-platano.jpg" alt="Pizza de plátano hawaiana 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Pizza de plátano hawaiana', 'Una propuesta creativa que utiliza el plátano como ingrediente principal.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">ESPECIAL</span>
     <h3>Pizza de plátano hawaiana</h3>
     <p>Innovación gastronómica del festival.</p>
@@ -1736,15 +1739,15 @@ Especiales
 
 <!-- Tarjeta 4 -->
 <article class="food comida" data-type="dulce">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/bocadillo-platano.jpg" alt="Bocadillo de plátano 1" class="food-carousel-img active">
       <img src="imagenes/dulce-hoja-platano.jpg" alt="Bocadillo de plátano 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Bocadillo de plátano', 'Una presentación artesanal donde el plátano se convierte en un dulce del festival.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">DULCE</span>
     <h3>Bocadillo de plátano</h3>
     <p>Dulce presentado de forma artesanal.</p>
@@ -1755,15 +1758,15 @@ Especiales
 
 <!-- Tarjeta 5 -->
 <article class="food comida" data-type="salado">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/festival-productos.jpg" alt="Productos del festival 1" class="food-carousel-img active">
       <img src="imagenes/plato-hoja-platano.jpg" alt="Productos del festival 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Productos del festival', 'Productos y preparaciones identificados con la imagen del festival.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">SALADO</span>
     <h3>Productos del festival</h3>
     <p>Empaques y preparaciones con identidad propia.</p>
@@ -1774,15 +1777,15 @@ Especiales
 
 <!-- Tarjeta 6 -->
 <article class="food comida" data-type="dulce">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/dulce-hoja-platano.jpg" alt="Dulce tradicional 1" class="food-carousel-img active">
       <img src="imagenes/bocadillo-platano.jpg" alt="Dulce tradicional 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Dulce tradicional', 'Una presentación donde incluso la hoja hace parte de la experiencia.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">DULCE</span>
     <h3>Dulce tradicional</h3>
     <p>Presentado sobre una hoja de plátano.</p>
@@ -1793,15 +1796,15 @@ Especiales
 
 <!-- Tarjeta 7 -->
 <article class="food comida" data-type="salado">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/plato-hoja-platano.jpg" alt="Plato de la comunidad 1" class="food-carousel-img active">
       <img src="imagenes/gastronomia-1.jpg" alt="Plato de la comunidad 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Plato de la comunidad', 'Una muestra de comida acompañada con plátano y presentada de manera tradicional.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">SALADO</span>
     <h3>Plato de la comunidad</h3>
     <p>La hoja también forma parte de la presentación.</p>
@@ -1812,15 +1815,15 @@ Especiales
 
 <!-- Tarjeta 8 -->
 <article class="food comida" data-type="salado">
-  <div class="food-carousel">
+  <div class="food-carousel" onclick="abrirPlatoTarjeta(this)">
     <div class="food-carousel-track">
       <img src="imagenes/canapes-platano.jpg" alt="Canapés de plátano 1" class="food-carousel-img active">
       <img src="imagenes/pizza-platano.jpg" alt="Canapés de plátano 2" class="food-carousel-img">
     </div>
-    <button class="food-car-btn food-prev-btn" onclick="cambiarImagenTarjeta(this, -1)">&#10094;</button>
-    <button class="food-car-btn food-next-btn" onclick="cambiarImagenTarjeta(this, 1)">&#10095;</button>
+    <button class="food-car-btn food-prev-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, -1)">&#10094;</button>
+    <button class="food-car-btn food-next-btn" onclick="event.stopPropagation(); cambiarImagenTarjeta(this, 1)">&#10095;</button>
   </div>
-  <div class="food-body" onclick="abrirPlato('Canapés de plátano', 'Pequeñas porciones elaboradas con una base de plátano y diferentes ingredientes.', this.closest('.food').querySelector('.food-carousel-img.active').src)">
+  <div class="food-body" onclick="abrirPlatoTarjeta(this.closest('.food').querySelector('.food-carousel'))">
     <span class="tag">SALADO</span>
     <h3>Canapés de plátano</h3>
     <p>Bocados para compartir durante el festival.</p>
@@ -1890,7 +1893,6 @@ Haz clic en cada lugar para descubrir qué sucede allí.
 </button>
 
 
-<!-- ÍCONO REEMPLAZADO POR UBICACIÓN DE MAPA -->
 <a
   class="place p3"
   href="https://www.google.com/maps?q=9.061797989206655,-74.59379875828512"
@@ -2342,7 +2344,6 @@ Otro dato
 
 <!-- =====================================================
      🍌 EL DESAFÍO DEL PLÁTANO
-     JUSTO DEBAJO DEL QUIZ
      ===================================================== -->
 
 <section id="desafioPlatano">
@@ -2844,7 +2845,7 @@ al material aportado para este proyecto.
 
 
 <!-- =====================================================
-     MODAL DE GALERÍA (MEJORADO CON CONTROLES Y CARRUSEL)
+     MODAL DE GALERÍA Y PLATOS (NAVEGABLE Y TÁCTIL)
      ===================================================== -->
 
 <div
@@ -2866,7 +2867,7 @@ al material aportado para este proyecto.
 ❮
 </button>
 
-<div class="modal-box">
+<div class="modal-box" id="modalBox">
 
 <div id="modalContent">
 </div>
@@ -3077,7 +3078,7 @@ function responder(boton,correcto){
 
 
 /* =====================================================
-   IMÁGENES Y MODALES (MEJORADO CON NAVEGACIÓN Y CARRUSEL)
+   IMÁGENES Y MODALES (CON NAVEGACIÓN COMPLETA)
    ===================================================== */
 
 let itemsGaleria = [];
@@ -3085,7 +3086,11 @@ let indiceGaleriaActual = 0;
 let esModoGaleria = false;
 
 document.addEventListener("DOMContentLoaded", function(){
-  itemsGaleria = Array.from(document.querySelectorAll('.gallery-item img'));
+  itemsGaleria = Array.from(document.querySelectorAll('.gallery-item img')).map(img => ({
+    src: img.src,
+    titulo: img.alt || 'Fotografía del festival',
+    texto: ''
+  }));
 });
 
 function abrirImagen(index){
@@ -3103,6 +3108,33 @@ function abrirImagen(index){
 
 }
 
+function abrirPlatoTarjeta(carouselEl) {
+  const card = carouselEl.closest('.food');
+  const imgs = Array.from(card.querySelectorAll('.food-carousel-img'));
+  const activeImg = card.querySelector('.food-carousel-img.active');
+  const initialIndex = imgs.indexOf(activeImg);
+  
+  const titulo = card.querySelector('.food-body h3').textContent;
+  const texto = card.querySelector('.food-body p').textContent;
+
+  itemsGaleria = imgs.map(img => ({
+    src: img.src,
+    titulo: titulo,
+    texto: texto
+  }));
+
+  esModoGaleria = true;
+  indiceGaleriaActual = initialIndex >= 0 ? initialIndex : 0;
+  actualizarContenidoGaleria();
+
+  document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = imgs.length > 1 ? "flex" : "none");
+
+  document
+    .getElementById("modal")
+    .classList
+    .add("open");
+}
+
 function cambiarImagenGaleria(paso){
   if(!esModoGaleria || itemsGaleria.length === 0) return;
 
@@ -3118,47 +3150,24 @@ function cambiarImagenGaleria(paso){
 }
 
 function actualizarContenidoGaleria(){
-  const imgActual = itemsGaleria[indiceGaleriaActual];
-  const src = imgActual.src;
-  const titulo = imgActual.alt || 'Fotografía del festival';
+  const item = itemsGaleria[indiceGaleriaActual];
+  const src = item.src;
+  const titulo = item.titulo;
+  const texto = item.texto;
 
-  document
-    .getElementById("modalContent")
-    .innerHTML =
-      '<img src="' + src + '" alt="' + titulo + '">' +
-      '<h2>' + titulo + '</h2>' +
-      '<p>Imagen ' + (indiceGaleriaActual + 1) + ' de ' + itemsGaleria.length + '</p>';
+  let html = '<img src="' + src + '" alt="' + titulo + '">' +
+             '<h2>' + titulo + '</h2>';
+  
+  if(texto){
+    html += '<p>' + texto + '</p>';
+  }
+  
+  if(itemsGaleria.length > 1){
+    html += '<p style="font-size:13px; color:#aaa; margin-top:4px;">Imagen ' + (indiceGaleriaActual + 1) + ' de ' + itemsGaleria.length + '</p>';
+  }
+
+  document.getElementById("modalContent").innerHTML = html;
 }
-
-
-function abrirPlato(titulo,texto,src){
-
-  esModoGaleria = false;
-  document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = "none");
-
-  document
-    .getElementById("modalContent")
-    .innerHTML =
-      '<img src="' +
-      src +
-      '" alt="' +
-      titulo +
-      '">' +
-      '<h2>' +
-      titulo +
-      '</h2>' +
-      '<p>' +
-      texto +
-      '</p>';
-
-
-  document
-    .getElementById("modal")
-    .classList
-    .add("open");
-
-}
-
 
 function lugar(titulo,texto,src){
 
@@ -3226,6 +3235,33 @@ document.addEventListener("keydown", function(e){
     }
   }
 });
+
+/* Detección de Gestos Táctiles (Swipe) para Móviles */
+let touchStartX = 0;
+let touchEndX = 0;
+
+const modalEl = document.getElementById("modal");
+
+modalEl.addEventListener("touchstart", function(e) {
+  touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+
+modalEl.addEventListener("touchend", function(e) {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+}, {passive: true});
+
+function handleSwipe() {
+  const swipeThreshold = 40; // Sensibilidad del gesto
+  if (touchEndX < touchStartX - swipeThreshold) {
+    // Deslizó hacia la izquierda -> Siguiente imagen
+    cambiarImagenGaleria(1);
+  }
+  if (touchEndX > touchStartX + swipeThreshold) {
+    // Deslizó hacia la derecha -> Imagen anterior
+    cambiarImagenGaleria(-1);
+  }
+}
 
 
 
@@ -3318,7 +3354,6 @@ document.addEventListener("DOMContentLoaded", function() {
   itemsCarrusel = Array.from(document.querySelectorAll('#galleryCarousel .gallery-item'));
   const dotsContainer = document.getElementById('carouselDots');
   
-  // Generar puntos dinámicamente
   itemsCarrusel.forEach((_, index) => {
     const dot = document.createElement('div');
     dot.classList.add('dot');

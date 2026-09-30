@@ -461,7 +461,12 @@ section{
   box-shadow:0 7px 18px rgba(0,0,0,.2);
   cursor:pointer;
   font-size:30px;
-  transition:.25s
+  transition:.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .place:hover{
@@ -941,7 +946,7 @@ section{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none; /* Evita que la imagen interfiera con el clic del div */
+  pointer-events: none;
 }
 
 /* Flechas del carrusel */
@@ -1090,7 +1095,7 @@ footer span{
 
 .modal-box img{
   max-width:100%;
-  max-height:75vh;
+  max-height:65vh;
   display:block;
   margin:auto;
   border-radius:14px;
@@ -1412,7 +1417,7 @@ Quiz
 <div class="hero">
 
 <div class="banana-icon">
-<img src="imagenes/escudo2.png" width=160 height=100>
+<img src="imagenes/escudo2.png" width=160 height=100 alt="Escudo">
 </div>
 
 <span class="badge">
@@ -1672,7 +1677,7 @@ Especiales
 <div class="food-grid">
 
 
-<!-- Tarjeta 1 con Carrusel Múltiple -->
+<!-- Tarjeta 1 -->
 <article class="food comida" data-type="salado">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1691,7 +1696,7 @@ Especiales
 
 
 
-<!-- Tarjeta 2 con Carrusel Múltiple -->
+<!-- Tarjeta 2 -->
 <article class="food comida" data-type="especial">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1710,7 +1715,7 @@ Especiales
 
 
 
-<!-- Tarjeta 3 con Carrusel Múltiple -->
+<!-- Tarjeta 3 -->
 <article class="food comida" data-type="especial">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1729,7 +1734,7 @@ Especiales
 
 
 
-<!-- Tarjeta 4 con Carrusel Múltiple -->
+<!-- Tarjeta 4 -->
 <article class="food comida" data-type="dulce">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1748,7 +1753,7 @@ Especiales
 
 
 
-<!-- Tarjeta 5 con Carrusel Múltiple -->
+<!-- Tarjeta 5 -->
 <article class="food comida" data-type="salado">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1767,7 +1772,7 @@ Especiales
 
 
 
-<!-- Tarjeta 6 con Carrusel Múltiple -->
+<!-- Tarjeta 6 -->
 <article class="food comida" data-type="dulce">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1786,7 +1791,7 @@ Especiales
 
 
 
-<!-- Tarjeta 7 con Carrusel Múltiple -->
+<!-- Tarjeta 7 -->
 <article class="food comida" data-type="salado">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1805,7 +1810,7 @@ Especiales
 
 
 
-<!-- Tarjeta 8 con Carrusel Múltiple -->
+<!-- Tarjeta 8 -->
 <article class="food comida" data-type="salado">
   <div class="food-carousel">
     <div class="food-carousel-track">
@@ -1832,7 +1837,7 @@ Especiales
 
 
 <!-- =====================================================
-     PUEBLO
+     PUEBLO (RECORRE EL PUEBLO INTERACTIVO)
      ===================================================== -->
 
 <section id="pueblo">
@@ -1863,7 +1868,8 @@ Haz clic en cada lugar para descubrir qué sucede allí.
   class="place p1"
   onclick="lugar(
     '🌱 Finca platanera',
-    'Aquí se muestran las matas de plátano, los racimos y el trabajo del cultivo.'
+    'Aquí se muestran las matas de plátano, los racimos y el trabajo del cultivo que sustenta la economía y cultura local.',
+    'imagenes/banner-festival-2026.jpg'
   )"
 >
 🌱
@@ -1875,7 +1881,8 @@ Haz clic en cada lugar para descubrir qué sucede allí.
   class="place p2"
   onclick="lugar(
     '🎶 Plaza principal',
-    'Aquí se realizan la apertura, la música, las fotografías y las actividades centrales.'
+    'El corazón de la celebración: espacio de apertura, desfiles, música en vivo y encuentro comunitario.',
+    'imagenes/portada-festival.jpg'
   )"
 >
 🎶
@@ -1883,23 +1890,25 @@ Haz clic en cada lugar para descubrir qué sucede allí.
 </button>
 
 
-<button
+<!-- ÍCONO REEMPLAZADO POR UBICACIÓN DE MAPA -->
+<a
   class="place p3"
-  onclick="lugar(
-    '🍽️ Calle gastronómica',
-    'Puestos con platos de plátano, bebidas y muestras de la cocina local.'
-  )"
+  href="https://www.google.com/maps?q=9.061797989206655,-74.59379875828512"
+  target="_blank"
+  rel="noopener noreferrer"
+  title="Abrir ubicación en Google Maps"
 >
-🍽️
-<span>Comida</span>
-</button>
+🗺️
+<span>Ubicación</span>
+</a>
 
 
 <button
   class="place p4"
   onclick="lugar(
     '🧺 Zona artesanal',
-    'Decoraciones, empaques, trabajos con hojas y creatividad de la comunidad.'
+    'Exposición de creatividad local: artesanías elaboradas con fibra y hojas de plátano, tejidos y recuerdos.',
+    'imagenes/puesto-hojas-platano.jpg'
   )"
 >
 🧺
@@ -1911,7 +1920,8 @@ Haz clic en cada lugar para descubrir qué sucede allí.
   class="place p5"
   onclick="lugar(
     '💃 Tarima folclórica',
-    'Danzas, música, desfiles y presentaciones culturales.'
+    'El escenario principal donde la música folclórica, las danzas tradicionales y las presentaciones culturales cobran vida.',
+    'imagenes/participantes-festival.jpg'
   )"
 >
 💃
@@ -1923,7 +1933,8 @@ Haz clic en cada lugar para descubrir qué sucede allí.
   class="place p6"
   onclick="lugar(
     '🎪 Feria',
-    'Punto para recorrer los diferentes puestos del festival.'
+    'Punto central para recorrer los diferentes estands del festival y compartir con los emprendedores locales.',
+    'imagenes/festival-productos.jpg'
   )"
 >
 🎪
@@ -2269,7 +2280,7 @@ Otro dato
   class="answer"
   onclick="responder(this,false)"
 >
-🏎️️ Carrera de Fórmula 1
+🏎️ Carrera de Fórmula 1
 </button>
 
 <button
@@ -3149,21 +3160,20 @@ function abrirPlato(titulo,texto,src){
 }
 
 
-function lugar(titulo,texto){
+function lugar(titulo,texto,src){
 
   esModoGaleria = false;
   document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = "none");
 
+  let htmlContenido = '';
+  if(src){
+    htmlContenido += '<img src="' + src + '" alt="' + titulo + '" style="width:100%; max-height:300px; object-fit:cover; border-radius:12px; margin-bottom:15px;">';
+  }
+  htmlContenido += '<h2>' + titulo + '</h2>' + '<p>' + texto + '</p>';
+
   document
     .getElementById("modalContent")
-    .innerHTML =
-      '<h2>' +
-      titulo +
-      '</h2>' +
-      '<p>' +
-      texto +
-      '</p>';
-
+    .innerHTML = htmlContenido;
 
   document
     .getElementById("modal")
@@ -3338,7 +3348,6 @@ function actualizarCarrusel() {
   const total = itemsCarrusel.length;
 
   itemsCarrusel.forEach((item, i) => {
-    // Cálculo circular para que el carrusel sea infinito
     let diff = i - indiceCarrusel;
     if (diff > Math.floor(total / 2)) diff -= total;
     if (diff < -Math.floor(total / 2)) diff += total;
@@ -3346,19 +3355,17 @@ function actualizarCarrusel() {
     const absDiff = Math.abs(diff);
 
     if (absDiff > 2) {
-      // Ocultar tarjetas lejanas
       item.style.opacity = 0;
       item.style.transform = `translateX(${Math.sign(diff) * 100}%) scale(0.5)`;
       item.style.zIndex = -1;
       item.style.pointerEvents = 'none';
     } else {
-      // Mostrar y posicionar tarjetas centrales
       item.style.opacity = 1 - (absDiff * 0.2);
       item.style.zIndex = 10 - absDiff;
-      item.style.pointerEvents = absDiff === 0 ? 'auto' : 'none'; // Solo la del centro abre el modal
+      item.style.pointerEvents = absDiff === 0 ? 'auto' : 'none';
       
-      const translateX = diff * 65; // Ajusta qué tan separadas están
-      const scale = 1 - (absDiff * 0.2); // Escala progresiva (1, 0.8, 0.6)
+      const translateX = diff * 65;
+      const scale = 1 - (absDiff * 0.2);
       
       item.style.transform = `translateX(${translateX}%) scale(${scale})`;
     }

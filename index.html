@@ -1,4 +1,4 @@
-f<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -1623,7 +1623,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
   <div class="dp-hud">
     <div>🍌 Puntos<br><span id="dpPuntos">0</span></div>
     <div>⏱️ Tiempo<br><span id="dpTiempo">60</span></div>
-    <div>❤️ Vidas<br><span id="dpVidas">❤️❤️️❤️</span></div>
+    <div>❤️ Vidas<br><span id="dpVidas">❤️❤❤️</span></div>
     <div>🔥 Nivel<br><span id="dpNivel">1</span></div>
   </div>
 
@@ -2047,14 +2047,35 @@ function cambiarImagenTarjeta(button, direccion) {
 
 
 /* =====================================================
-   FORMULARIO
+   FORMULARIO CONECTADO A SUPABASE
    ===================================================== */
 
-function enviarFormulario(event){
+async function enviarFormulario(event){
   event.preventDefault();
-  const nombre = document.getElementById("nombre").value;
-  alert("¡Gracias, " + nombre + "! Tu mensaje fue recibido.");
-  document.querySelector(".formulario").reset();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const correo = document.getElementById("correo").value.trim();
+  const mensaje = document.getElementById("mensaje").value.trim();
+
+  try {
+    if (typeof supabaseClient === "undefined") {
+      alert("⚠️ Supabase no está conectado.");
+      return;
+    }
+
+    const { error } = await supabaseClient
+      .from("mensajes")
+      .insert([{ nombre, correo, mensaje }]);
+
+    if (error) throw error;
+
+    alert("¡Gracias, " + nombre + "! Tu mensaje fue recibido correctamente.");
+    document.querySelector(".formulario").reset();
+
+  } catch (err) {
+    console.error("Error al enviar el mensaje:", err);
+    alert("Ocurrió un error al enviar tu mensaje. Inténtalo de nuevo.");
+  }
 }
 
 
@@ -2556,7 +2577,7 @@ async function guardarPuntuacion(){
     guardarEstado.textContent = "✅ ¡Puntuación guardada en el ranking!";
   }catch(error){
     console.error(error);
-    guardarEstado.textContent = "⚠️ Error al guardar la puntuación.";
+    guardarEstado.textContent = "⚠️️ Error al guardar la puntuación.";
   }
 }
 

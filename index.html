@@ -1382,7 +1382,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 
 
 <!-- =====================================================
-     PUEBLO
+     PUEBLO (MAPA CON NAVEGACIÓN MULTIMEDIA INTERACTIVA)
      ===================================================== -->
 
 <section id="pueblo">
@@ -1391,7 +1391,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 
 <div class="titulo">
   <h2>🏡 Recorre el pueblo</h2>
-  <p>Haz clic en cada lugar para descubrir qué sucede allí.</p>
+  <p>Haz clic en cada lugar para descubrir la multimedia interactiva de la zona.</p>
 </div>
 
 <div class="map-wrap">
@@ -1400,11 +1400,11 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 
 <div class="path"></div>
 
-<button class="place p1" onclick="lugar('🌱 Finca platanera', 'Aquí se muestran las matas de plátano, los racimos y el trabajo del cultivo que sustenta la economía y cultura local.', 'imagenes/banner-festival-2026.jpg')">
+<button class="place p1" onclick="abrirPueblo('finca')">
 🌱<span>Finca</span>
 </button>
 
-<button class="place p2" onclick="lugar('🎶 Plaza principal', 'El corazón de la celebración: espacio de apertura, desfiles, música en vivo y encuentro comunitario.', 'imagenes/portada-festival.jpg')">
+<button class="place p2" onclick="abrirPueblo('plaza')">
 🎶<span>Plaza</span>
 </button>
 
@@ -1412,15 +1412,15 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 🗺️<span>Ubicación</span>
 </a>
 
-<button class="place p4" onclick="lugar('🧺 Zona artesanal', 'Exposición de creatividad local: artesanías elaboradas con fibra y hojas de plátano, tejidos y recuerdos.', 'imagenes/puesto-hojas-platano.jpg')">
+<button class="place p4" onclick="abrirPueblo('artesanias')">
 🧺<span>Artesanías</span>
 </button>
 
-<button class="place p5" onclick="lugar('💃 Tarima folclórica', 'El escenario principal donde la música folclórica, las danzas tradicionales y las presentaciones culturales cobran vida.', 'imagenes/participantes-festival.jpg')">
+<button class="place p5" onclick="abrirPueblo('folclor')">
 💃<span>Folclor</span>
 </button>
 
-<button class="place p6" onclick="lugar('🎪 Feria', 'Punto central para recorrer los diferentes estands del festival y compartir con los emprendedores locales.', 'imagenes/festival-productos.jpg')">
+<button class="place p6" onclick="abrirPueblo('feria')">
 🎪<span>Feria</span>
 </button>
 
@@ -1571,7 +1571,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
     <button class="answer" onclick="responder(this,false)">🏎️ Carrera de Fórmula 1</button>
     <button class="answer" onclick="responder(this,false)">🏒 Hockey sobre hielo</button>
   </div>
-   
+    
   <div class="question">
     <h3>4. ¿En qué lugar se lleva a cabo el Festival del Plátano?</h3>
     <button class="answer" onclick="responder(this,false)">📍 Santa Rosa</button>
@@ -1666,7 +1666,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 
 
 <!-- =====================================================
-     GALERÍA (EFECTO CARRUSEL 3D)
+     GALERÍA (EFECTO CARRUSEL 3D INCLUYENDO MULTIMEDIA NUEVA)
      ===================================================== -->
 <section>
   <div class="container">
@@ -1692,6 +1692,9 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
         <div class="gallery-item" onclick="abrirImagen(10)"><img src="imagenes/canapes-platano.jpg" alt="Canapés"></div>
         <div class="gallery-item" onclick="abrirImagen(11)"><img src="imagenes/puesto-hojas-platano.jpg" alt="Puesto"></div>
         <div class="gallery-item" onclick="abrirImagen(12)"><img src="imagenes/banner-festival-2026.jpg" alt="Banner"></div>
+        <div class="gallery-item" onclick="abrirImagen(13)"><img src="imagenes/IMG-20260608-WA0047.jpg" alt="Reina del Plátano"></div>
+        <div class="gallery-item" onclick="abrirImagen(14)"><img src="imagenes/IMG-20260608-WA0037.jpg" alt="Traje de Cabuya"></div>
+        <div class="gallery-item" onclick="abrirImagen(15)"><img src="imagenes/IMG-20260608-WA0046.jpg" alt="Desfile de Candidatas"></div>
       </div>
 
       <button class="car-btn right-btn" onclick="moverCarrusel(1)">&#10095;</button>
@@ -1866,6 +1869,7 @@ function responder(boton,correcto){
 let itemsGaleria = [];
 let indiceGaleriaActual = 0;
 let esModoGaleria = false;
+let esModoPueblo = false;
 
 // Construir lista de fotos de la Galería 3D
 function obtenerFotosGaleria() {
@@ -1897,6 +1901,7 @@ function obtenerFotosGastronomia() {
 function abrirImagen(index){
   itemsGaleria = obtenerFotosGaleria();
   esModoGaleria = true;
+  esModoPueblo = false;
   indiceGaleriaActual = index;
   actualizarContenidoGaleria();
 
@@ -1911,10 +1916,10 @@ function abrirFotoComida(carouselEl) {
 
   itemsGaleria = obtenerFotosGastronomia();
   
-  // Buscar el índice exacto de la imagen que el usuario cliqueó dentro de TODAS las imágenes de gastronomía
   const initialIndex = itemsGaleria.findIndex(item => item.src === targetSrc);
 
   esModoGaleria = true;
+  esModoPueblo = false;
   indiceGaleriaActual = initialIndex >= 0 ? initialIndex : 0;
   actualizarContenidoGaleria();
 
@@ -1923,6 +1928,11 @@ function abrirFotoComida(carouselEl) {
 }
 
 function cambiarImagenGaleria(paso){
+  if (esModoPueblo) {
+    cambiarItemPueblo(paso);
+    return;
+  }
+
   if(!esModoGaleria || itemsGaleria.length === 0) return;
 
   indiceGaleriaActual += paso;
@@ -1958,6 +1968,7 @@ function actualizarContenidoGaleria(){
 
 function lugar(titulo,texto,src){
   esModoGaleria = false;
+  esModoPueblo = false;
   document.querySelectorAll(".nav-btn").forEach(btn => btn.style.display = "none");
 
   let htmlContenido = '';
@@ -1972,6 +1983,11 @@ function lugar(titulo,texto,src){
 
 function cerrarModal(){
   document.getElementById("modal").classList.remove("open");
+  const modalContent = document.getElementById("modalContent");
+  if (modalContent) {
+    const video = modalContent.querySelector("video");
+    if (video) video.pause();
+  }
 }
 
 document.getElementById("modal").addEventListener("click", function(e){
@@ -1987,7 +2003,7 @@ document.addEventListener("keydown", function(e){
     if(e.key === "Escape"){
       cerrarModal();
     }
-    if(esModoGaleria){
+    if(esModoGaleria || esModoPueblo){
       if(e.key === "ArrowRight"){
         cambiarImagenGaleria(1);
       }
@@ -2021,6 +2037,117 @@ function handleSwipe() {
   if (touchEndX > touchStartX + swipeThreshold) {
     cambiarImagenGaleria(-1);
   }
+}
+
+
+/* =====================================================
+   MULTIMEDIA INTERACTIVA DEL MAPA "RECORRE EL PUEBLO"
+   ===================================================== */
+
+const multimediaPueblo = {
+  finca: {
+    titulo: "🌱 Finca platanera",
+    descripcion: "Demostración de los cultivos de plátano, racimos y el trabajo tradicional campesino de Santa Elena.",
+    items: [
+      { tipo: 'imagen', src: 'imagenes/banner-festival-2026.jpg', titulo: 'Cultivo de plátano' },
+      { tipo: 'imagen', src: 'imagenes/IMG-20260606-WA0027.jpg', titulo: 'Siembra y producción' }
+    ]
+  },
+  plaza: {
+    titulo: "🎶 Plaza principal",
+    descripcion: "Punto de encuentro donde se realizan los actos oficiales, música en vivo y el desfile de comparsas.",
+    items: [
+      { tipo: 'imagen', src: 'imagenes/portada-festival.jpg', titulo: 'Apertura en la plaza' },
+      { tipo: 'imagen', src: 'imagenes/IMG-20260606-WA0030.jpg', titulo: 'Reunión comunitaria' }
+    ]
+  },
+  artesanias: {
+    titulo: "🧺 Zona artesanal",
+    descripcion: "Exposición de creatividad local con artesanías hechas de fibra, cabuya y hojas de plátano.",
+    items: [
+      { tipo: 'imagen', src: 'imagenes/puesto-hojas-platano.jpg', titulo: 'Puesto artesanal en hojas' },
+      { tipo: 'imagen', src: 'imagenes/IMG-20260608-WA0037.jpg', titulo: 'Diseño en cabuya y fibra' }
+    ]
+  },
+  folclor: {
+    titulo: "💃 Tarima folclórica (Videos)",
+    descripcion: "Presentaciones de danza, baile típico y muestras folclóricas en video.",
+    items: [
+      { tipo: 'video', src: 'videos/VID-20261001-WA0034.mp4', titulo: 'Presentación Folclórica y Danza 1' },
+      { tipo: 'video', src: 'videos/VID-20261001-WA0007.mp4', titulo: 'Muestra Cultural y Baile Típico' },
+      { tipo: 'video', src: 'videos/VID-20261001-WA0004.mp4', titulo: 'Desfile y Música del Festival' },
+      { tipo: 'video', src: 'videos/VID-20261001-WA0002.mp4', titulo: 'Ambiente y Evento de Comunidad' }
+    ]
+  },
+  feria: {
+    titulo: "🎪 Feria gastronómica y comercial",
+    descripcion: "Muestra de productos locales, dulces artesanales y la oferta de los emprendedores.",
+    items: [
+      { tipo: 'imagen', src: 'imagenes/festival-productos.jpg', titulo: 'Estand de la feria' },
+      { tipo: 'imagen', src: 'imagenes/IMG-20260606-WA0029.jpg', titulo: 'Dulces y empaques' }
+    ]
+  }
+};
+
+let listaPuebloActual = [];
+let indicePuebloActual = 0;
+let tituloPuebloSeccion = "";
+let descPuebloSeccion = "";
+
+function abrirPueblo(lugarClave) {
+  const lugarData = multimediaPueblo[lugarClave];
+  if (!lugarData) return;
+
+  esModoGaleria = false;
+  esModoPueblo = true;
+
+  listaPuebloActual = lugarData.items;
+  indicePuebloActual = 0;
+  tituloPuebloSeccion = lugarData.titulo;
+  descPuebloSeccion = lugarData.descripcion;
+  
+  mostrarItemPueblo();
+
+  document.querySelectorAll(".nav-btn").forEach(btn => {
+    btn.style.display = listaPuebloActual.length > 1 ? "flex" : "none";
+  });
+
+  document.getElementById("modal").classList.add("open");
+}
+
+function cambiarItemPueblo(paso) {
+  if (!esModoPueblo || listaPuebloActual.length === 0) return;
+
+  indicePuebloActual += paso;
+  if (indicePuebloActual < 0) {
+    indicePuebloActual = listaPuebloActual.length - 1;
+  } else if (indicePuebloActual >= listaPuebloActual.length) {
+    indicePuebloActual = 0;
+  }
+  mostrarItemPueblo();
+}
+
+function mostrarItemPueblo() {
+  const item = listaPuebloActual[indicePuebloActual];
+  let html = '';
+
+  if (item.tipo === 'video') {
+    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;">' +
+              '<source src="' + item.src + '" type="video/mp4">' +
+              'Tu navegador no soporta la reproducción de video.' +
+            '</video>';
+  } else {
+    html += '<img src="' + item.src + '" alt="' + item.titulo + '">';
+  }
+
+  html += '<h2>' + (item.titulo || tituloPuebloSeccion) + '</h2>';
+  html += '<p>' + descPuebloSeccion + '</p>';
+  
+  if (listaPuebloActual.length > 1) {
+    html += '<p style="font-size:13px; color:#ffd83d; margin-top:6px;">Elemento ' + (indicePuebloActual + 1) + ' de ' + listaPuebloActual.length + ' (Navega con las flechas ❮ ❯)</p>';
+  }
+
+  document.getElementById("modalContent").innerHTML = html;
 }
 
 
@@ -2577,7 +2704,7 @@ async function guardarPuntuacion(){
     guardarEstado.textContent = "✅ ¡Puntuación guardada en el ranking!";
   }catch(error){
     console.error(error);
-    guardarEstado.textContent = "⚠️️ Error al guardar la puntuación.";
+    guardarEstado.textContent = "⚠ Error al guardar la puntuación.";
   }
 }
 

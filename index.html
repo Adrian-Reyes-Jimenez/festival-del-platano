@@ -1717,6 +1717,39 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
         <div class="gallery-item" onclick="abrirImagen(13)"><img src="imagenes/IMG-20260608-WA0047.jpg" alt="Reina del Plátano"></div>
         <div class="gallery-item" onclick="abrirImagen(14)"><img src="imagenes/IMG-20260608-WA0037.jpg" alt="Traje de Cabuya"></div>
         <div class="gallery-item" onclick="abrirImagen(15)"><img src="imagenes/IMG-20260608-WA0046.jpg" alt="Desfile de Candidatas"></div>
+        <div class="gallery-item" onclick="abrirImagen(16)"><img src="imagenes/Code_Generated_Image.png" alt="Imagen del proyecto"></div>
+        <div class="gallery-item" onclick="abrirImagen(17)"><img src="imagenes/ESCUDO.png" alt="Escudo"></div>
+        <div class="gallery-item" onclick="abrirImagen(18)"><img src="imagenes/IETRAV.jpg" alt="Institución Educativa"></div>
+        <div class="gallery-item" onclick="abrirImagen(19)"><img src="imagenes/IMG-20260606-WA0028.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(20)"><img src="imagenes/IMG-20260606-WA0034.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(21)"><img src="imagenes/IMG-20260608-WA0038.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(22)"><img src="imagenes/IMG-20260608-WA0041.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(23)"><img src="imagenes/IMG-20260608-WA0048.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(24)"><img src="imagenes/IMG-20260815-WA0021.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(25)"><img src="imagenes/IMG-20261001-WA0022.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(26)"><img src="imagenes/IMG-20261001-WA0023.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(27)"><img src="imagenes/IMG-20261001-WA0024.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(28)"><img src="imagenes/IMG-20261001-WA0025.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(29)"><img src="imagenes/IMG-20261001-WA0026.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(30)"><img src="imagenes/IMG-20261001-WA0028.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(31)"><img src="imagenes/IMG-20261001-WA0029.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(32)"><img src="imagenes/IMG-20261001-WA0030.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(33)"><img src="imagenes/IMG-20261001-WA0031.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(34)"><img src="imagenes/IMG-20261001-WA0032.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(35)"><img src="imagenes/IMG-20261001-WA0033.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(36)"><img src="imagenes/IMG-20261001-WA0036.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(37)"><img src="imagenes/IMG-20261001-WA0038.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(38)"><img src="imagenes/IMG-20261001-WA0040.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(39)"><img src="imagenes/IMG-20261001-WA0041.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(40)"><img src="imagenes/IMG-20261001-WA0042.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(41)"><img src="imagenes/IMG-20261001-WA0043.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(42)"><img src="imagenes/IMG-20261001-WA0044.jpg" alt="Festival"></div>
+        <div class="gallery-item" onclick="abrirImagen(43)"><video src="videos/VID-20260815-WA0028.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(44)"><video src="videos/VID-20261001-WA0002.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(45)"><video src="videos/VID-20261001-WA0007.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(46)"><video src="videos/VID-20261001-WA0034.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(47)"><video src="videos/vid-20261001-wa0053_GipAtfh0.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(48)"><video src="videos/video-festival.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
       </div>
 
       <button class="car-btn right-btn" onclick="moverCarrusel(1)">&#10095;</button>
@@ -1895,11 +1928,14 @@ let esModoPueblo = false;
 
 // Construir lista de fotos de la Galería 3D
 function obtenerFotosGaleria() {
-  return Array.from(document.querySelectorAll('#galleryCarousel .gallery-item img')).map(img => ({
-    src: img.src,
-    titulo: img.alt || 'Fotografía del festival',
-    texto: ''
-  }));
+  return Array.from(document.querySelectorAll('#galleryCarousel .gallery-item')).map(item => {
+    const img = item.querySelector('img');
+    const video = item.querySelector('video');
+    if (video) {
+      return { tipo: 'video', src: video.getAttribute('src'), titulo: 'Video del Festival del Plátano', texto: '' };
+    }
+    return { tipo: 'imagen', src: img.src, titulo: img.alt || 'Fotografía del festival', texto: '' };
+  });
 }
 
 // Construir lista de TODAS las fotos de Gastronomía
@@ -1974,8 +2010,16 @@ function actualizarContenidoGaleria(){
   const titulo = item.titulo;
   const texto = item.texto;
 
-  let html = '<img src="' + src + '" alt="' + titulo + '">' +
-             '<h2>' + titulo + '</h2>';
+  let html = '';
+  if(item.tipo === 'video'){
+    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;">' +
+            '<source src="' + src + '" type="video/mp4">' +
+            'Tu navegador no soporta la reproducción de video.' +
+            '</video>';
+  } else {
+    html += '<img src="' + src + '" alt="' + titulo + '">';
+  }
+  html += '<h2>' + titulo + '</h2>';
   
   if(texto){
     html += '<p>' + texto + '</p>';
@@ -2087,9 +2131,8 @@ const multimediaPueblo = {
     titulo: "🧺 Zona artesanal",
     descripcion: "Exposición de creatividad local con artesanías hechas de fibra, cabuya y hojas de plátano.",
     items: [
-      { tipo: 'imagen', src: 'imagenes/puesto-hojas-platano.jpg', titulo: 'Puesto artesanal en hojas' },
       { tipo: 'imagen', src: 'imagenes/IMG-20260608-WA0037.jpg', titulo: 'Diseño en cabuya y fibra' },
-      { tipo: 'video', src: 'videos/vid-20261001-wa0053_GipAtfh0', titulo: 'Video de artesanías' },
+      { tipo: 'video', src: 'videos/vid-20261001-wa0053_GipAtfh0.mp4', titulo: 'Video de artesanías' },
     ]
   },
   folclor: {

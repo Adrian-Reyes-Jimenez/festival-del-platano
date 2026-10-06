@@ -1007,6 +1007,12 @@ footer span{ color:#ffd83d }
   user-select: none;
 }
 
+/* ESTILO PARA ROTAR VIDEOS GRABADOS EN HORIZONTAL DE LADO */
+.video-rotado-90 {
+  transform: rotate(90deg) scale(0.8);
+  max-height: 48vh !important;
+}
+
 @keyframes zoomIn {
   from { transform: scale(0.92); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
@@ -1229,7 +1235,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 </p>
 
 <a href="#gastronomia" class="btn">🍽️ Explorar sabores</a>
-<a href="#pueblo" class="btn">🗺️ Recorrer el pueblo</a>
+<a href="#pueblo" class="btn">🗺️️ Recorrer el pueblo</a>
 
 </div>
 
@@ -1843,7 +1849,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
         <div class="gallery-item" onclick="abrirImagen(40)"><video src="videos/VID-20261001-WA0002.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(41)"><video src="videos/VID-20261001-WA0007.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(42)"><video src="videos/VID-20261001-WA0034.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
-        <div class="gallery-item" onclick="abrirImagen(43)"><video src="videos/vid-20261001-wa0053_GipAtfh0.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(43)"><video src="videos/vid-20261001-wa0053_GipAtfh0.mp4" class="video-rotado-90" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(44)"><video src="videos/video-festival.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
       </div>
 
@@ -1886,17 +1892,19 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
      FOOTER
      ===================================================== -->
 
-<footer>
-  <p>🍌 <span>Festival del Plátano — Santa Elena</span></p>
-  <p>Proyecto escolar interactivo • Tecnología e Informática</p>
-  <p>Las fotografías y el video integrados corresponden al material aportado para este proyecto.</p>
-</footer>
+footer{
+  background:#163d1b;
+  color:#fff;
+  text-align:center;
+  padding:25px
+}
+
+footer span{ color:#ffd83d }
 
 
-
-<!-- =====================================================
-     BOTÓN ARRIBA
-     ===================================================== -->
+/* =====================================================
+   BOTÓN ARRIBA
+   ===================================================== */
 
 <button id="topBtn" onclick="subirArriba()">↑</button>
 
@@ -2027,7 +2035,13 @@ function obtenerFotosGaleria() {
     const img = item.querySelector('img');
     const video = item.querySelector('video');
     if (video) {
-      return { tipo: 'video', src: video.getAttribute('src'), titulo: 'Video del Festival del Plátano', texto: '' };
+      return { 
+        tipo: 'video', 
+        src: video.getAttribute('src'), 
+        titulo: 'Video del Festival del Plátano', 
+        texto: '',
+        esRotado: video.classList.contains('video-rotado-90')
+      };
     }
     return { tipo: 'imagen', src: img.src, titulo: img.alt || 'Fotografía del festival', texto: '' };
   });
@@ -2107,7 +2121,8 @@ function actualizarContenidoGaleria(){
 
   let html = '';
   if(item.tipo === 'video'){
-    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;">' +
+    const claseExtra = item.esRotado ? ' class="video-rotado-90"' : '';
+    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;"' + claseExtra + '>' +
             '<source src="' + src + '" type="video/mp4">' +
             'Tu navegador no soporta la reproducción de video.' +
             '</video>';
@@ -2227,7 +2242,7 @@ const multimediaPueblo = {
     descripcion: "Exposición de creatividad local con artesanías hechas de fibra, cabuya y hojas de plátano.",
     items: [
       { tipo: 'imagen', src: 'imagenes/IMG-20260608-WA0037.jpg', titulo: 'Diseño en cabuya y fibra' },
-      { tipo: 'video', src: 'videos/vid-20261001-wa0053_GipAtfh0.mp4', titulo: 'Video de artesanías' },
+      { tipo: 'video', src: 'videos/vid-20261001-wa0053_GipAtfh0.mp4', titulo: 'Video de artesanías', esRotado: true }
     ]
   },
   folclor: {
@@ -2236,7 +2251,7 @@ const multimediaPueblo = {
     items: [
       { tipo: 'video', src: 'videos/VID-20261001-WA0034.mp4', titulo: 'Presentación Folclórica y Danza 1' },
       { tipo: 'video', src: 'videos/VID-20261001-WA0007.mp4', titulo: 'Muestra Cultural y Baile Típico' },
-      { tipo: 'video', src: 'videos/VID-20261001-WA0004.mp4', titulo: 'Desfile y Música del Festival' },
+      { tipo: 'video', src: 'videos/VID-20260815-WA0028.mp4', titulo: 'Desfile y Música del Festival' },
       { tipo: 'video', src: 'videos/VID-20261001-WA0002.mp4', titulo: 'Ambiente y Evento de Comunidad' }
     ]
   },
@@ -2293,7 +2308,8 @@ function mostrarItemPueblo() {
   let html = '';
 
   if (item.tipo === 'video') {
-    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;">' +
+    const claseRotado = item.esRotado ? ' class="video-rotado-90"' : '';
+    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;"' + claseRotado + '>' +
               '<source src="' + item.src + '" type="video/mp4">' +
               'Tu navegador no soporta la reproducción de video.' +
             '</video>';
@@ -2631,7 +2647,11 @@ function dibujarJugador(){
   ctx.strokeStyle = "#704618";
   ctx.lineWidth=3;
   ctx.beginPath();
-  ctx.roundRect(jugadorX, y, jugadorAncho, jugadorAlto, 8);
+  if (typeof ctx.roundRect === 'function') {
+    ctx.roundRect(jugadorX, y, jugadorAncho, jugadorAlto, 8);
+  } else {
+    ctx.rect(jugadorX, y, jugadorAncho, jugadorAlto);
+  }
   ctx.fill();
   ctx.stroke();
 

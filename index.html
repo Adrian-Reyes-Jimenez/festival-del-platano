@@ -1007,10 +1007,10 @@ footer span{ color:#ffd83d }
   user-select: none;
 }
 
-/* ESTILO PARA ROTAR VIDEOS GRABADOS EN HORIZONTAL DE LADO */
-.video-rotado-90 {
-  transform: rotate(90deg) scale(0.8);
-  max-height: 48vh !important;
+/* ROTACIÓN EXACTA PARA ENDEREZAR VIDEO DE ARTESANÍAS EN EL MODAL */
+.video-rotado-vertical {
+  transform: rotate(-90deg) scale(0.85);
+  max-height: 50vh !important;
 }
 
 @keyframes zoomIn {
@@ -1698,7 +1698,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
     <button class="answer" onclick="responder(this,false)">🏎️ Carrera de Fórmula 1</button>
     <button class="answer" onclick="responder(this,false)">🏒 Hockey sobre hielo</button>
   </div>
-    
+
   <div class="question">
     <h3>4. ¿En qué lugar se lleva a cabo el Festival del Plátano?</h3>
     <button class="answer" onclick="responder(this,false)">📍 Santa Rosa</button>
@@ -1749,7 +1749,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 <div id="dpJuego" class="dp-oculto">
   <div class="dp-hud">
     <div>🍌 Puntos<br><span id="dpPuntos">0</span></div>
-    <div>⏱️ Tiempo<br><span id="dpTiempo">60</span></div>
+    <div>⏱️️ Tiempo<br><span id="dpTiempo">60</span></div>
     <div>❤️ Vidas<br><span id="dpVidas">❤️❤❤️</span></div>
     <div>🔥 Nivel<br><span id="dpNivel">1</span></div>
   </div>
@@ -1849,7 +1849,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
         <div class="gallery-item" onclick="abrirImagen(40)"><video src="videos/VID-20261001-WA0002.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(41)"><video src="videos/VID-20261001-WA0007.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(42)"><video src="videos/VID-20261001-WA0034.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
-        <div class="gallery-item" onclick="abrirImagen(43)"><video src="videos/vid-20261001-wa0053_GipAtfh0.mp4" class="video-rotado-90" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(43)"><video src="videos/vid-20261001-wa0053_GipAtfh0.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(44)"><video src="videos/video-festival.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
       </div>
 
@@ -1892,19 +1892,17 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
      FOOTER
      ===================================================== -->
 
-footer{
-  background:#163d1b;
-  color:#fff;
-  text-align:center;
-  padding:25px
-}
-
-footer span{ color:#ffd83d }
+<footer>
+  <p>🍌 <span>Festival del Plátano — Santa Elena</span></p>
+  <p>Proyecto escolar interactivo • Tecnología e Informática</p>
+  <p>Las fotografías y el video integrados corresponden al material aportado para este proyecto.</p>
+</footer>
 
 
-/* =====================================================
-   BOTÓN ARRIBA
-   ===================================================== */
+
+<!-- =====================================================
+     BOTÓN ARRIBA
+     ===================================================== -->
 
 <button id="topBtn" onclick="subirArriba()">↑</button>
 
@@ -2039,8 +2037,7 @@ function obtenerFotosGaleria() {
         tipo: 'video', 
         src: video.getAttribute('src'), 
         titulo: 'Video del Festival del Plátano', 
-        texto: '',
-        esRotado: video.classList.contains('video-rotado-90')
+        texto: ''
       };
     }
     return { tipo: 'imagen', src: img.src, titulo: img.alt || 'Fotografía del festival', texto: '' };
@@ -2121,8 +2118,7 @@ function actualizarContenidoGaleria(){
 
   let html = '';
   if(item.tipo === 'video'){
-    const claseExtra = item.esRotado ? ' class="video-rotado-90"' : '';
-    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;"' + claseExtra + '>' +
+    html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;">' +
             '<source src="' + src + '" type="video/mp4">' +
             'Tu navegador no soporta la reproducción de video.' +
             '</video>';
@@ -2249,9 +2245,8 @@ const multimediaPueblo = {
     titulo: "💃 Tarima folclórica (Videos)",
     descripcion: "Presentaciones de danza, baile típico y muestras folclóricas en video.",
     items: [
-      { tipo: 'video', src: 'videos/VID-20261001-WA0034.mp4', titulo: 'Presentación Folclórica y Danza 1' },
+      { tipo: 'video', src: 'videos/VID-20261001-WA0034.mp4', titulo: 'Presentación Folclórica y Danza' },
       { tipo: 'video', src: 'videos/VID-20261001-WA0007.mp4', titulo: 'Muestra Cultural y Baile Típico' },
-      { tipo: 'video', src: 'videos/VID-20260815-WA0028.mp4', titulo: 'Desfile y Música del Festival' },
       { tipo: 'video', src: 'videos/VID-20261001-WA0002.mp4', titulo: 'Ambiente y Evento de Comunidad' }
     ]
   },
@@ -2308,7 +2303,7 @@ function mostrarItemPueblo() {
   let html = '';
 
   if (item.tipo === 'video') {
-    const claseRotado = item.esRotado ? ' class="video-rotado-90"' : '';
+    const claseRotado = item.esRotado ? ' class="video-rotado-vertical"' : '';
     html += '<video controls autoplay style="width:100%; max-height:55vh; border-radius:14px; background:#000;"' + claseRotado + '>' +
               '<source src="' + item.src + '" type="video/mp4">' +
               'Tu navegador no soporta la reproducción de video.' +

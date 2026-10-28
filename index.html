@@ -486,11 +486,114 @@ section{
 
 
 /* =====================================================
+   FOLCLOR
+   ===================================================== */
+
+#folclor{ background:#fff }
+
+.folklor-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center
+}
+
+.folklor-grid img{
+  width:100%;
+  height:360px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12)
+}
+
+.costumes{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:22px
+}
+
+.costume{
+  background:#fff8dd;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  border-bottom:5px solid #ffd83d
+}
+
+.costume .emoji{ font-size:55px }
+.costume h3{ color:#246329; margin:8px 0 }
+
+
+/* =====================================================
+   FORO DEPARTAMENTAL
+   ===================================================== */
+
+#foro{
+  background:#f1f7e8;
+}
+
+.foro-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  height: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  background: #000;
+}
+
+.foro-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.foro-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.foro-slide img, .foro-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foro-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(36, 99, 41, 0.7);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.foro-btn:hover { background: #246329; }
+.foro-prev { left: 15px; }
+.foro-next { right: 15px; }
+
+
+/* =====================================================
    PUEBLO
    ===================================================== */
 
 #pueblo{
-  background:#f1f7e8
+  background:#fff
 }
 
 .map-wrap{
@@ -567,46 +670,6 @@ section{
 .p4{ left:21%; bottom:10% }
 .p5{ right:24%; bottom:8% }
 .p6{ right:43%; bottom:21% }
-
-
-/* =====================================================
-   FOLCLOR
-   ===================================================== */
-
-#folclor{ background:#fff }
-
-.folklor-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center
-}
-
-.folklor-grid img{
-  width:100%;
-  height:360px;
-  object-fit:cover;
-  border-radius:22px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12)
-}
-
-.costumes{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:22px
-}
-
-.costume{
-  background:#fff8dd;
-  border-radius:16px;
-  padding:20px;
-  text-align:center;
-  border-bottom:5px solid #ffd83d
-}
-
-.costume .emoji{ font-size:55px }
-.costume h3{ color:#246329; margin:8px 0 }
 
 
 /* =====================================================
@@ -1150,6 +1213,7 @@ footer span{ color:#ffd83d }
   .hero p{ font-size:17px }
   .logo{ font-size:18px }
   .dp-contenedor{ padding:12px }
+  .foro-slider-container { height: 300px; }
 }
 
 </style>
@@ -1199,6 +1263,7 @@ footer span{ color:#ffd83d }
   <li><a href="#festival">El pueblo</a></li>
   <li><a href="#gastronomia">Gastronomía</a></li>
   <li><a href="#folclor">Folclor</a></li>
+  <li><a href="#foro">Foro</a></li>
   <li><a href="#pueblo">Pueblo</a></li>
   <li><a href="#video">Videos</a></li>
   <li><a href="#quiz">Quiz</a></li>
@@ -1235,7 +1300,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 </p>
 
 <a href="#gastronomia" class="btn">🍽️ Explorar sabores</a>
-<a href="#pueblo" class="btn">🗺️️ Recorrer el pueblo</a>
+<a href="#pueblo" class="btn">🗺 Recorrer el pueblo</a>
 
 </div>
 
@@ -1487,6 +1552,106 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 
 
 <!-- =====================================================
+     FOLCLOR
+     ===================================================== -->
+
+<section id="folclor">
+
+<div class="container">
+
+<div class="titulo">
+  <h2>💃 Folclor, trajes y decoración</h2>
+  <p>El ambiente del festival también se construye con creatividad y materiales inspirados en el plátano.</p>
+</div>
+
+<div class="folklor-grid">
+
+  <img src="imagenes/puesto-hojas-platano.jpg" alt="Puesto decorado con hojas de plátano">
+
+  <div>
+    <h3 style="color:#246329; font-size:28px; margin-bottom:12px">Un pueblo vestido de verde</h3>
+    <p style="line-height:1.8; margin-bottom:12px">Las hojas de plátano pueden transformar los puestos y espacios del festival: sirven como paredes, techos, manteles y elementos decorativos.</p>
+    <p style="line-height:1.8">Los trajes y accesorios del proyecto pueden inspirarse en formas de hojas, racimos y colores del cultivo.</p>
+
+    <div class="costumes">
+      <div class="costume">
+        <div class="emoji">🍃</div>
+        <h3>Hojas</h3>
+        <p>Motivo principal de la decoración.</p>
+      </div>
+      <div class="costume">
+        <div class="emoji">👒</div>
+        <h3>Trajes</h3>
+        <p>Vestuario campesino y creativo.</p>
+      </div>
+      <div class="costume">
+        <div class="emoji">🧺</div>
+        <h3>Artesanías</h3>
+        <p>Fibras y elementos naturales.</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FORO DEPARTAMENTAL
+     ===================================================== -->
+
+<section id="foro">
+
+<div class="container">
+
+<div class="titulo">
+  <h2>🌟 Experiencia en el Foro Departamental</h2>
+  <p>Exposición de nuestra experiencia pedagógica en el Foro Educativo de Bolívar, Cartagena.</p>
+</div>
+
+<div class="foro-slider-container">
+  
+  <div class="foro-slide active">
+    <img src="imagenes/cartagena1.jpg" alt="Participación en el Foro Cartagena 1">
+  </div>
+  
+  <div class="foro-slide">
+    <img src="imagenes/cartagena2.jpg" alt="Participación en el Foro Cartagena 2">
+  </div>
+  
+  <div class="foro-slide">
+    <img src="imagenes/cartagena3.jpg" alt="Participación en el Foro Cartagena 3">
+  </div>
+  
+  <div class="foro-slide">
+    <img src="imagenes/cartagena4.jpg" alt="Participación en el Foro Cartagena 4">
+  </div>
+  
+  <div class="foro-slide">
+    <video src="videos/cartagena5.mp4" controls preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video>
+  </div>
+  
+  <div class="foro-slide">
+    <video src="videos/cartagena6.mp4" controls preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video>
+  </div>
+
+  <button class="foro-btn foro-prev" onclick="moverForoSlider(-1)">&#10094;</button>
+  <button class="foro-btn foro-next" onclick="moverForoSlider(1)">&#10095;</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      PUEBLO (MAPA CON NAVEGACIÓN MULTIMEDIA INTERACTIVA)
      ===================================================== -->
 
@@ -1558,55 +1723,6 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 
     <p style="margin-top: 14px; font-weight: 600;">▶️ Haz clic en la imagen para ver el video en YouTube</p>
   </div>
-</section>
-
-
-<!-- =====================================================
-     FOLCLOR
-     ===================================================== -->
-
-<section id="folclor">
-
-<div class="container">
-
-<div class="titulo">
-  <h2>💃 Folclor, trajes y decoración</h2>
-  <p>El ambiente del festival también se construye con creatividad y materiales inspirados en el plátano.</p>
-</div>
-
-<div class="folklor-grid">
-
-  <img src="imagenes/puesto-hojas-platano.jpg" alt="Puesto decorado con hojas de plátano">
-
-  <div>
-    <h3 style="color:#246329; font-size:28px; margin-bottom:12px">Un pueblo vestido de verde</h3>
-    <p style="line-height:1.8; margin-bottom:12px">Las hojas de plátano pueden transformar los puestos y espacios del festival: sirven como paredes, techos, manteles y elementos decorativos.</p>
-    <p style="line-height:1.8">Los trajes y accesorios del proyecto pueden inspirarse en formas de hojas, racimos y colores del cultivo.</p>
-
-    <div class="costumes">
-      <div class="costume">
-        <div class="emoji">🍃</div>
-        <h3>Hojas</h3>
-        <p>Motivo principal de la decoración.</p>
-      </div>
-      <div class="costume">
-        <div class="emoji">👒</div>
-        <h3>Trajes</h3>
-        <p>Vestuario campesino y creativo.</p>
-      </div>
-      <div class="costume">
-        <div class="emoji">🧺</div>
-        <h3>Artesanías</h3>
-        <p>Fibras y elementos naturales.</p>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
 </section>
 
 
@@ -1749,7 +1865,7 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
 <div id="dpJuego" class="dp-oculto">
   <div class="dp-hud">
     <div>🍌 Puntos<br><span id="dpPuntos">0</span></div>
-    <div>⏱️️ Tiempo<br><span id="dpTiempo">60</span></div>
+    <div>⏱ Tiempo<br><span id="dpTiempo">60</span></div>
     <div>❤️ Vidas<br><span id="dpVidas">❤️❤❤️</span></div>
     <div>🔥 Nivel<br><span id="dpNivel">1</span></div>
   </div>
@@ -1851,6 +1967,14 @@ Santa Elena te abre las puertas a una experiencia escolar diferente, pensada par
         <div class="gallery-item" onclick="abrirImagen(42)"><video src="videos/VID-20261001-WA0034.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(43)"><video src="videos/vid-20261001-wa0053_GipAtfh0.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
         <div class="gallery-item" onclick="abrirImagen(44)"><video src="videos/video-festival.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        
+        <!-- NUEVO CONTENIDO AÑADIDO A LA GALERÍA -->
+        <div class="gallery-item" onclick="abrirImagen(45)"><img src="imagenes/cartagena1.jpg" alt="Experiencia Foro 1"></div>
+        <div class="gallery-item" onclick="abrirImagen(46)"><img src="imagenes/cartagena2.jpg" alt="Experiencia Foro 2"></div>
+        <div class="gallery-item" onclick="abrirImagen(47)"><img src="imagenes/cartagena3.jpg" alt="Experiencia Foro 3"></div>
+        <div class="gallery-item" onclick="abrirImagen(48)"><img src="imagenes/cartagena4.jpg" alt="Experiencia Foro 4"></div>
+        <div class="gallery-item" onclick="abrirImagen(49)"><video src="videos/cartagena5.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
+        <div class="gallery-item" onclick="abrirImagen(50)"><video src="videos/cartagena6.mp4" muted preload="metadata" poster="imagenes/banner-festival-2026.jpg"></video></div>
       </div>
 
       <button class="car-btn right-btn" onclick="moverCarrusel(1)">&#10095;</button>
@@ -2342,6 +2466,34 @@ function cambiarImagenTarjeta(button, direccion) {
   }
   
   images[currentIndex].classList.add('active');
+}
+
+
+/* =====================================================
+   CARRUSEL DEL FORO
+   ===================================================== */
+let indiceForoSlider = 0;
+
+function moverForoSlider(dir) {
+  const slides = document.querySelectorAll('.foro-slide');
+  if (slides.length === 0) return;
+  
+  slides[indiceForoSlider].classList.remove('active');
+  
+  const videoActual = slides[indiceForoSlider].querySelector('video');
+  if (videoActual) {
+    videoActual.pause();
+  }
+  
+  indiceForoSlider += dir;
+  
+  if (indiceForoSlider < 0) {
+    indiceForoSlider = slides.length - 1;
+  } else if (indiceForoSlider >= slides.length) {
+    indiceForoSlider = 0;
+  }
+  
+  slides[indiceForoSlider].classList.add('active');
 }
 
 
